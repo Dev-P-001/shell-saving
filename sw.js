@@ -1,6 +1,6 @@
 // Network-first for the app's own pages/scripts (updates arrive on the next visit),
 // cache fallback when offline or the network is slow. Icons and the vendored library are cache-first.
-const CACHE_NAME = "shell-savings-v19-profile-tab";
+const CACHE_NAME = "shell-savings-v21-slim-titles";
 const APP_FILES = [
   "./",
   "./index.html",
