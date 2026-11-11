@@ -1,0 +1,1683 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#fff5f8">
+<script>
+(function(){var T=["blossom","ocean","forest","sunset","midnight"],p="blossom";
+try{var v=localStorage.getItem("shellSavings_theme_v2");
+if(T.indexOf(v)>-1)p=v;else{var o=localStorage.getItem("shellSavings100_theme_v1");
+if(o==="dark"||(o==="auto"&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches))p="midnight";}}catch(e){}
+document.documentElement.setAttribute("data-theme",p);})();
+</script>
+<title>Shell Savings Challenge</title>
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" type="image/png" href="./icons/icon-192.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Shell Savings">
+
+<style>
+:root,html[data-theme=blossom]{color-scheme:light;--ink:#44354b;--muted:#887b8c;--line:#f0dce8;--green:#32835d;--danger:#b42342;--bgA:#ffeaf2;--bgB:#e8e0ff;--bg1:#fffafd;--bg2:#faf7ff;--bg3:#f3fff8;--card:rgba(255,255,255,.88);--solid:#fff;--input:#fff;--inputLine:#e5d7e7;--h1:rgba(255,255,255,.94);--h2:rgba(255,240,247,.88);--h3:rgba(241,236,255,.9);--hLine:#f3dfeb;--hDot:#d7b2d0;--hGlow:#fff9d8aa;--s1:#fff0f6;--s2:#f4efff;--s3:#effbf4;--s4:#fff8e9;--a1:#80628f;--a2:#654777;--aSoft:rgba(128,98,143,.3);--r1:#eea8c8;--r2:#b8a2eb;--track:#f1e9f2;--rIn:#fffdfd;--f1:#f7a9c8;--f2:#b7a1ef;--f3:#86d9ad;--d1:#eafff0;--d2:#dff6e9;--dLine:#9dd9b6;--dInk:#246b48;--dAmt:#32835d;--m1:#fff0f3;--m2:#ffe4ea;--mLine:#f2b3c1;--mInk:#a23a55;--t1:#fff5fa;--tLine:#d49bc0;--sh1:#fff;--sh2:#fffafd;--shLine:#eadce9;--shDay:#8b7a91;--shAmt:#a18d9e;--secBg:#fff;--secInk:#66536f;--msInk:#7e588c;--chipInk:#7e588c;--eyeInk:#9a6483;--eyeBg:#fff;--tabBg:rgba(255,255,255,.88);--sh:104,64,92;--overlay:#34213e55}
+html[data-theme=ocean]{color-scheme:light;--ink:#1f3a4d;--muted:#5f7d92;--line:#d3e6f0;--green:#1f8a70;--danger:#c0334f;--bgA:#d3effb;--bgB:#dbe6ff;--bg1:#f7fcff;--bg2:#f1f7ff;--bg3:#eefcf9;--card:rgba(255,255,255,.9);--solid:#fff;--input:#fff;--inputLine:#c9dde9;--h1:rgba(255,255,255,.95);--h2:rgba(226,244,252,.9);--h3:rgba(228,236,255,.9);--hLine:#cfe5f0;--hDot:#8fbfd6;--hGlow:#d6f6ffaa;--s1:#e8f6fd;--s2:#eaf0ff;--s3:#e6faf4;--s4:#fff6e4;--a1:#2f7fa8;--a2:#1f5f86;--aSoft:rgba(47,127,168,.3);--r1:#6cc0e3;--r2:#7d9cf0;--track:#e3eef5;--rIn:#fbfeff;--f1:#5fc3e8;--f2:#7d9cf0;--f3:#6fd9b8;--d1:#e5fbf4;--d2:#d3f5ea;--dLine:#8fd8bf;--dInk:#17694f;--dAmt:#1f8a70;--m1:#eef1fb;--m2:#e0e7f6;--mLine:#a9bde0;--mInk:#4a5f8a;--t1:#eaf7fd;--tLine:#5fb0d4;--sh1:#fff;--sh2:#f9fdff;--shLine:#d3e4ee;--shDay:#5f7d92;--shAmt:#7f9aab;--secBg:#fff;--secInk:#2c5f7c;--msInk:#2c6d94;--chipInk:#2c6d94;--eyeInk:#3d7ea0;--eyeBg:#fff;--tabBg:rgba(255,255,255,.9);--sh:29,74,102;--overlay:#12304555}
+html[data-theme=forest]{color-scheme:light;--ink:#26382c;--muted:#6b7f6f;--line:#d9e8d6;--green:#2f8a4f;--danger:#b83a2e;--bgA:#dcf1d2;--bgB:#f1eecb;--bg1:#fbfef8;--bg2:#f5faf0;--bg3:#f0f9ec;--card:rgba(255,255,255,.9);--solid:#fff;--input:#fff;--inputLine:#cfe0cb;--h1:rgba(255,255,255,.95);--h2:rgba(233,247,225,.9);--h3:rgba(247,244,216,.9);--hLine:#d6e7d1;--hDot:#9cc79a;--hGlow:#f6f0b8aa;--s1:#ecf8e6;--s2:#f6f3da;--s3:#e5f6ea;--s4:#fdf1de;--a1:#4f8a4c;--a2:#366b3a;--aSoft:rgba(79,138,76,.3);--r1:#8fcf7a;--r2:#d6c25a;--track:#e6efe0;--rIn:#fcfffa;--f1:#9bd77f;--f2:#d9c85d;--f3:#6fcf9d;--d1:#e6f9df;--d2:#d5f2cb;--dLine:#94d184;--dInk:#226a2d;--dAmt:#2f8a4f;--m1:#fdf0ea;--m2:#f9e2d8;--mLine:#e6b49f;--mInk:#9a4a2f;--t1:#f1fbe9;--tLine:#86bd6a;--sh1:#fff;--sh2:#fbfef8;--shLine:#d8e6d3;--shDay:#6b7f6f;--shAmt:#86997f;--secBg:#fff;--secInk:#3c5a40;--msInk:#3f7a3f;--chipInk:#3f7a3f;--eyeInk:#58875a;--eyeBg:#fff;--tabBg:rgba(255,255,255,.9);--sh:44,74,42;--overlay:#1b301d55}
+html[data-theme=sunset]{color-scheme:light;--ink:#4a2f2a;--muted:#8e6f66;--line:#f3dccf;--green:#2f8a5f;--danger:#b8322a;--bgA:#ffe0cb;--bgB:#ffd6df;--bg1:#fffaf6;--bg2:#fff6f3;--bg3:#fff8ea;--card:rgba(255,255,255,.9);--solid:#fff;--input:#fff;--inputLine:#ead3c5;--h1:rgba(255,255,255,.95);--h2:rgba(255,236,222,.9);--h3:rgba(255,225,230,.9);--hLine:#f5dac9;--hDot:#e2a98d;--hGlow:#ffe39a99;--s1:#ffefe3;--s2:#ffe8ec;--s3:#effbf1;--s4:#fff4d6;--a1:#d9663f;--a2:#b8434a;--aSoft:rgba(217,102,63,.3);--r1:#ffa57a;--r2:#f2709c;--track:#f6e8e0;--rIn:#fffdfb;--f1:#ffb27d;--f2:#f77f9e;--f3:#ffd36b;--d1:#eefbe6;--d2:#e0f5d2;--dLine:#aedb8a;--dInk:#3a6a22;--dAmt:#4a8a2a;--m1:#ffeaea;--m2:#ffd9d9;--mLine:#f0a3a3;--mInk:#9c2f2f;--t1:#fff1e8;--tLine:#e8957a;--sh1:#fff;--sh2:#fffaf6;--shLine:#f0d9cc;--shDay:#8e6f66;--shAmt:#a88a80;--secBg:#fff;--secInk:#7a4a40;--msInk:#b0503f;--chipInk:#b0503f;--eyeInk:#b8654d;--eyeBg:#fff;--tabBg:rgba(255,255,255,.9);--sh:122,59,42;--overlay:#3d1e1655}
+html[data-theme=midnight]{color-scheme:dark;--ink:#f3ecf7;--muted:#b9acbf;--line:#3f3350;--green:#7ad6a6;--danger:#ff8fa8;--bgA:#3a2133;--bgB:#2a2347;--bg1:#17121c;--bg2:#1a1522;--bg3:#131a1a;--card:rgba(37,28,46,.92);--solid:#251c2e;--input:#1c1524;--inputLine:#43364f;--h1:rgba(44,33,54,.95);--h2:rgba(52,34,52,.9);--h3:rgba(38,33,60,.92);--hLine:#3f3350;--hDot:#8f6a8c;--hGlow:#ffd98a14;--s1:#3a2433;--s2:#2f2749;--s3:#1f3330;--s4:#3a3022;--a1:#9a7ab0;--a2:#7b5c91;--aSoft:rgba(154,122,176,.4);--r1:#e58bb7;--r2:#9a83d9;--track:#392f45;--rIn:#1f1727;--f1:#e58bb7;--f2:#9a83d9;--f3:#7ad6a6;--d1:#1f3a2e;--d2:#1b3329;--dLine:#2f6b4d;--dInk:#a6e8c4;--dAmt:#7ad6a6;--m1:#3a2230;--m2:#32202c;--mLine:#7a3a55;--mInk:#f0a6bd;--t1:#3a2434;--tLine:#e08fb8;--sh1:#2a2033;--sh2:#251c2e;--shLine:#43364f;--shDay:#c3b4ca;--shAmt:#a898b0;--secBg:#2c2236;--secInk:#e4d6ea;--msInk:#d9b6ea;--chipInk:#e4c6f0;--eyeInk:#f0b5d3;--eyeBg:#2c2236;--tabBg:rgba(37,28,46,.9);--sh:0,0,0;--overlay:#000a}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 5% 0%,var(--bgA) 0,transparent 34%),radial-gradient(ellipse at 100% 18%,var(--bgB) 0,transparent 30%),linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 55%,var(--bg3) 100%);background-attachment:fixed;font-family:ui-rounded,"Trebuchet MS",system-ui,-apple-system,sans-serif;color:var(--ink);padding:env(safe-area-inset-top) 14px env(safe-area-inset-bottom);transition:background .3s,color .3s}
+main{max-width:720px;margin:0 auto;padding:18px 0 34px}
+.hero{text-align:center;padding:20px 16px 24px;margin:8px 0 14px;border:1px solid var(--hLine);border-radius:28px;background:linear-gradient(135deg,var(--h1),var(--h2) 48%,var(--h3));box-shadow:0 12px 32px rgba(var(--sh),.08);position:relative;overflow:hidden}.hero:after{content:"✦  ·  ✧";position:absolute;right:16px;top:15px;color:var(--hDot);font-size:1rem;letter-spacing:.35em}.hero:before{content:"";position:absolute;width:130px;height:130px;border-radius:50%;background:var(--hGlow);left:-62px;bottom:-72px}
+.eyebrow{display:inline-block;background:var(--eyeBg);border:1px solid var(--line);border-radius:999px;padding:7px 12px;font-size:.78rem;color:var(--eyeInk);font-weight:800;letter-spacing:.04em}
+h1{font-size:clamp(1.8rem,7vw,2.7rem);line-height:1.08;margin:14px 0 8px;letter-spacing:-.04em}
+.subtitle{margin:0 auto;max-width:440px;color:var(--muted);font-size:.98rem;line-height:1.5}
+.shell-hero{font-size:2.65rem;display:block;margin-bottom:7px;filter:drop-shadow(0 5px 7px rgba(var(--sh),.2));position:relative;z-index:1}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 12px}
+.stat,.panel{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:16px;box-shadow:0 7px 22px rgba(var(--sh),.06);backdrop-filter:blur(8px)}.stat{position:relative;overflow:hidden;min-height:104px}.stat:after{content:attr(data-icon);position:absolute;right:10px;bottom:2px;font-size:2rem;opacity:.14;pointer-events:none}.stat:nth-child(1){background:linear-gradient(145deg,var(--solid),var(--s1))}.stat:nth-child(2){background:linear-gradient(145deg,var(--solid),var(--s2))}.stat:nth-child(3){background:linear-gradient(145deg,var(--solid),var(--s3))}.stat:nth-child(4){background:linear-gradient(145deg,var(--solid),var(--s4))}
+.stat small{display:block;color:var(--muted);font-size:.78rem;font-weight:700;margin-bottom:6px}
+.stat strong{font-size:clamp(1.25rem,5vw,1.75rem);letter-spacing:-.03em}
+.stat .target{color:var(--green)}
+.progress-panel{margin-bottom:14px;padding:18px;background:linear-gradient(135deg,var(--solid) 0%,var(--s1) 55%,var(--s2) 100%)}.progress-layout{display:grid;grid-template-columns:112px minmax(0,1fr);align-items:center;gap:16px}.progress-ring{--progress:0%;width:108px;height:108px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(from -90deg,var(--r1) 0%,var(--r2) var(--progress),var(--track) var(--progress),var(--track) 100%);box-shadow:0 6px 18px rgba(var(--sh),.12);flex-shrink:0}.progress-ring-inner{width:84px;height:84px;border-radius:50%;background:var(--rIn);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:inset 0 0 0 1px var(--line)}.progress-ring-inner strong{font-size:1.35rem;letter-spacing:-.04em}.progress-ring-inner span{font-size:.67rem;color:var(--muted);font-weight:800}.progress-copy .progress-top{font-size:.95rem}.progress-copy .progress-track{height:10px}.progress-copy .progress-foot{flex-wrap:wrap}
+.progress-top{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:.9rem;font-weight:800}
+.progress-track{height:12px;background:var(--track);border-radius:99px;overflow:hidden;margin:11px 0 8px}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--f1),var(--f2),var(--f3));border-radius:99px;transition:width .2s ease}
+.progress-foot{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:.78rem}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:10px;margin:22px 2px 10px}.section-head h2{letter-spacing:-.02em}
+.section-head h2{font-size:1.12rem;margin:0}
+.section-head p{margin:3px 0 0;color:var(--muted);font-size:.8rem}
+.legend{font-size:.74rem;color:var(--muted);white-space:nowrap}
+.shell-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.shell{border:1px solid var(--shLine);border-radius:16px;min-width:0;min-height:76px;background:linear-gradient(145deg,var(--sh1),var(--sh2));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:var(--ink);cursor:pointer;padding:6px 2px;box-shadow:0 3px 8px rgba(var(--sh),.04);touch-action:manipulation;transition:transform .12s,border-color .12s,background .12s}
+.shell:active{transform:scale(.96)}
+.shell .emoji{font-size:1.65rem;line-height:1.2;filter:saturate(.72)}
+.shell .day{font-size:.72rem;font-weight:800;color:var(--shDay)}
+.shell .amount{font-size:.66rem;color:var(--shAmt)}
+.shell.done{background:linear-gradient(145deg,var(--d1),var(--d2));border-color:var(--dLine);box-shadow:0 3px 10px rgba(var(--sh),.08)}
+.shell.done .emoji,.shell.missed .emoji{filter:none}
+.shell.done .day{color:var(--dInk)}
+.shell.done .amount{color:var(--dAmt);font-weight:800}
+.shell.missed{background:linear-gradient(145deg,var(--m1),var(--m2));border-color:var(--mLine)}
+.shell.missed .day,.shell.missed .amount{color:var(--mInk)}.shell.missed .amount{font-weight:800}
+.shell.today:not(.done){border:2px solid var(--tLine);background:var(--t1)}
+.shell.today.done,.shell.today.missed{outline:2px solid var(--tLine);outline-offset:-2px}
+.controls{display:flex;gap:9px;margin-top:16px;flex-wrap:wrap}.controls button{box-shadow:0 5px 14px rgba(var(--sh),.08)}
+button.action{border:0;border-radius:14px;padding:12px 15px;font:inherit;font-weight:800;cursor:pointer;touch-action:manipulation}
+button.action:disabled{opacity:.55;cursor:default}
+.primary{background:linear-gradient(135deg,var(--a1),var(--a2));color:#fff;flex:1}
+.secondary{background:var(--secBg);border:1px solid var(--line)!important;color:var(--secInk)}
+.panel h3{margin:0 0 8px;font-size:1rem}
+.panel p{margin:0;color:var(--muted);font-size:.88rem;line-height:1.55}
+.panel-title{font-weight:800;margin-bottom:10px}
+.hint{margin:0 0 12px!important;font-size:.82rem!important}
+.milestones{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:10px}
+.milestone{background:var(--solid);border:1px solid var(--line);border-radius:13px;padding:10px 12px;display:flex;flex-direction:column;gap:3px;font-size:.82rem;transition:background .3s,border-color .3s}
+.milestone span{font-weight:700;color:var(--muted)}
+.milestone.done{background:linear-gradient(145deg,var(--d1),var(--d2));border-color:var(--dLine);box-shadow:0 3px 10px rgba(var(--sh),.08);animation:msPop .6s ease}
+.milestone.done span{color:var(--dInk)}.milestone.done b{color:var(--dAmt)}
+.milestone.next{border:2px dashed var(--tLine);background:var(--t1);padding:9px 11px}
+@keyframes msPop{0%{transform:scale(.92)}50%{transform:scale(1.06)}100%{transform:scale(1)}}
+.pk-row{display:flex;gap:8px;justify-content:center;font-size:1.55rem;padding:6px 0 2px;line-height:1.2}
+.theme-opt.pack-opt[aria-checked=true]:after{top:6px;left:8px}
+.milestone b{color:var(--msInk)}
+.note{font-size:.76rem;color:var(--muted);line-height:1.5;margin:14px 3px 0}
+.toast{min-height:22px;text-align:center;color:var(--green);font-size:.83rem;font-weight:800;margin-top:8px}
+dialog{border:0;border-radius:22px;padding:22px;max-width:340px;width:calc(100% - 34px);box-shadow:0 18px 70px rgba(0,0,0,.28);color:var(--ink);background:var(--solid)}
+dialog::backdrop{background:var(--overlay)}
+dialog h3{margin:0 0 8px}
+dialog p{color:var(--muted);line-height:1.5}
+.dialog-actions{display:flex;gap:8px}
+.dialog-actions button{flex:1}
+@media(min-width:520px){.shell-grid{grid-template-columns:repeat(10,minmax(0,1fr));gap:8px}.shell{min-height:72px}.milestones{grid-template-columns:repeat(5,minmax(0,1fr))}.stats{grid-template-columns:repeat(4,minmax(0,1fr))}.stat{padding:14px 12px;min-height:110px}.stat strong{font-size:1.3rem}}@media(max-width:390px){.progress-layout{grid-template-columns:86px minmax(0,1fr);gap:12px}.progress-ring{width:84px;height:84px}.progress-ring-inner{width:66px;height:66px}.progress-ring-inner strong{font-size:1.1rem}.progress-panel{padding:14px}.stat{padding:13px}.stat strong{font-size:1.15rem}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+.challenge-field{display:block;font-weight:800;font-size:.85rem}.challenge-field input{display:block;width:100%;margin-top:6px;padding:12px 14px;border:1px solid var(--inputLine);border-radius:12px;background:var(--input);color:var(--ink);font:inherit;font-weight:800}
+.dlg-input{width:100%;padding:12px;border:1px solid var(--inputLine);border-radius:12px;background:var(--input);font:inherit;color:var(--ink)}
+[hidden]{display:none!important}
+.auth-wrap{max-width:460px;margin:24px auto;padding:0 14px 28px}
+.auth-card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:0 8px 30px rgba(var(--sh),.1)}
+.auth-card h1{font-size:1.8rem;text-align:center;margin:10px 0}
+.auth-card .subtitle{text-align:center;margin-bottom:18px}
+.auth-field{display:block;width:100%;padding:13px 14px;border:1px solid var(--inputLine);border-radius:12px;background:var(--input);color:var(--ink);font:inherit;margin:8px 0 12px}
+.auth-label{font-size:.85rem;font-weight:800;color:var(--secInk)}
+.auth-actions{display:grid;gap:9px;margin-top:14px}
+.auth-actions .action{width:100%;min-height:46px}
+.auth-status{min-height:24px;margin-top:12px;font-size:.86rem;line-height:1.45;color:var(--green);overflow-wrap:anywhere}
+.auth-divider{text-align:center;color:var(--muted);font-size:.8rem;margin:12px 0}
+.account-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:0 0 12px;padding:10px 13px;border:1px solid var(--line);border-radius:15px;background:var(--solid);font-size:.82rem}
+.account-email{overflow-wrap:anywhere;color:var(--muted)}
+.today-chip{display:inline-block;margin:10px auto 0;padding:7px 14px;border-radius:999px;background:var(--solid);border:1px solid var(--line);font-weight:800;font-size:.85rem;color:var(--chipInk)}
+.streak-panel{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:center;margin:14px 0;padding:16px}
+.streak-panel .num{display:block;font-size:2rem;font-weight:900;line-height:1}
+.streak-panel small{display:block;color:var(--muted);font-weight:700;margin-top:4px}
+.streak-panel p{grid-column:1/-1;margin:0;color:var(--muted);font-size:.88rem}
+.streak-now{display:flex;gap:10px;align-items:center}.streak-now .flame{font-size:2rem}
+.tabbar{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;position:sticky;top:0;z-index:6;margin:0 0 12px;padding:8px;background:var(--tabBg);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:18px;box-shadow:0 6px 18px rgba(var(--sh),.12)}
+.tab{border:0;background:transparent;color:var(--muted);font:inherit;font-weight:800;font-size:.78rem;padding:8px 4px;border-radius:12px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px}
+.tab .ti{font-size:1.15rem}
+.tab[aria-selected=true]{background:linear-gradient(135deg,var(--a1),var(--a2));color:#fff}
+.tab-panel[hidden]{display:none}
+@media(max-width:420px){.tabbar{gap:3px;padding:6px}.tab{font-size:.68rem;padding:8px 1px}.tab .ti{font-size:1.05rem}}
+.plan-switch{display:flex;align-items:center;gap:10px;margin:0 0 12px;padding:10px 12px;border-radius:16px;background:var(--solid);border:1px solid var(--line)}
+.plan-switch label{font-weight:800;white-space:nowrap}
+.plan-switch select{flex:1;min-width:0;padding:10px 12px;border:1px solid var(--inputLine);border-radius:12px;background:var(--input);color:var(--ink);font:inherit;font-weight:800}
+.plan-card{display:block;width:100%;text-align:left;border:1px solid var(--line);border-radius:20px;padding:14px 16px;margin:0 0 10px;background:var(--solid);color:var(--ink);font:inherit;cursor:pointer}
+.plan-card.active{border-color:var(--a1);box-shadow:0 0 0 2px var(--aSoft)}
+.plan-card h3{margin:0 0 4px;font-size:1.05rem}
+.plan-card small{color:var(--muted);font-weight:700}
+.plan-bar{height:9px;border-radius:99px;background:var(--track);margin:10px 0 8px;overflow:hidden}
+.plan-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--r1),var(--r2))}
+.plan-meta{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:.84rem;font-weight:700}
+button.danger{color:var(--danger)!important}
+.theme-btn{padding:8px 12px!important;font-size:.8rem;white-space:nowrap}
+.auth-top{display:flex;justify-content:flex-end;margin:-6px -6px 8px 0}
+.bar-actions{display:flex;gap:8px;align-items:center}
+.acct-left{display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0}
+.sync-chip{border:1px solid var(--line);background:var(--solid);color:var(--green);font:inherit;font-size:.78rem;font-weight:800;padding:5px 10px;border-radius:999px;cursor:default}
+.sync-chip.sync-saving{color:var(--muted)}
+.sync-chip.sync-error{color:var(--danger);border-color:var(--danger);cursor:pointer}
+.sync-out{white-space:pre-line;margin:10px 0 0!important;font-size:.82rem!important;color:var(--ink)!important}
+.avatar{width:42px;height:42px;border-radius:50%;object-fit:cover;display:inline-grid;place-items:center;background:linear-gradient(135deg,var(--a1),var(--a2));color:#fff;font-weight:800;font-size:.95rem;flex-shrink:0;border:2px solid var(--solid);box-shadow:0 0 0 1px var(--line);overflow:hidden;line-height:1}
+.avatar.big{width:84px;height:84px;font-size:1.9rem}
+.avatar.emoji{background:var(--s2);font-size:1.5rem}.avatar.big.emoji{font-size:2.8rem}
+.acct-name{display:flex;flex-direction:column;min-width:0;line-height:1.25}.acct-name strong{font-size:.95rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.acct-name small{color:var(--muted);font-size:.72rem;overflow:hidden;text-overflow:ellipsis}
+.greet{position:relative;display:flex;gap:12px;align-items:center;margin:0 0 12px;padding:14px 38px 14px 14px;border:1px solid var(--hLine);border-radius:20px;background:linear-gradient(135deg,var(--h1),var(--h2) 55%,var(--h3));box-shadow:0 8px 22px rgba(var(--sh),.1);animation:greetIn .5s ease;transition:opacity .5s,transform .5s}
+.greet.hide{opacity:0;transform:translateY(-8px)}
+.greet .g-emoji{font-size:2.2rem;line-height:1;flex-shrink:0;display:inline-block;animation:smileBounce 1.8s ease-in-out infinite}
+.greet strong{display:block;font-size:1.02rem;margin-bottom:2px}.greet p{margin:0;color:var(--muted);font-size:.85rem;line-height:1.45}
+.greet .g-close{position:absolute;top:8px;right:8px;border:0;background:transparent;color:var(--muted);font-size:1.1rem;cursor:pointer;padding:4px 8px;border-radius:10px}
+@keyframes greetIn{0%{opacity:0;transform:translateY(-14px) scale(.97)}100%{opacity:1;transform:none}}
+.profile-head{display:flex;align-items:center;gap:14px;margin-bottom:12px}.profile-head strong{display:block;font-size:1.1rem}.profile-head small{display:block;color:var(--muted);font-size:.78rem;margin-top:2px;overflow-wrap:anywhere}
+.emoji-avatars{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+.emoji-avatars button{width:44px;height:44px;border-radius:50%;border:2px solid var(--line);background:var(--solid);font-size:1.4rem;cursor:pointer;padding:0;touch-action:manipulation}
+.emoji-avatars button[aria-pressed=true]{border-color:var(--a1);box-shadow:0 0 0 3px var(--aSoft)}
+.profile-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:14px 0 4px}
+.pstat{background:linear-gradient(145deg,var(--solid),var(--s1));border:1px solid var(--line);border-radius:14px;padding:10px 12px}.pstat:nth-child(2){background:linear-gradient(145deg,var(--solid),var(--s2))}.pstat:nth-child(3){background:linear-gradient(145deg,var(--solid),var(--s3))}.pstat:nth-child(4){background:linear-gradient(145deg,var(--solid),var(--s4))}
+.pstat small{display:block;color:var(--muted);font-size:.72rem;font-weight:700}.pstat strong{font-size:1.1rem}
+.badges{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px;margin-top:8px}
+.badge{border:1px solid var(--line);border-radius:14px;padding:10px 6px;text-align:center;background:var(--solid)}
+.badge span{display:block;font-size:1.6rem;line-height:1.2}.badge small{display:block;font-size:.68rem;font-weight:800;color:var(--muted);margin-top:3px}
+.badge.on{background:linear-gradient(145deg,var(--d1),var(--d2));border-color:var(--dLine)}.badge.on small{color:var(--dInk)}
+.badge.off{opacity:.5}.badge.off span{filter:grayscale(1)}
+.subhead{font-weight:800;font-size:.9rem;margin:16px 0 0}
+@media(min-width:520px){.profile-stats{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.amount-panel{background:linear-gradient(135deg,var(--solid),var(--s1) 55%,var(--s3))}
+/* ---- Theme picker ---- */
+.theme-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(104px,1fr));gap:10px}
+.theme-opt{position:relative;border:2px solid var(--line);border-radius:18px;padding:8px 8px 10px;background:var(--solid);color:var(--ink);font:inherit;font-weight:800;font-size:.82rem;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:7px;text-align:center;transition:transform .15s,border-color .15s,box-shadow .15s}
+.theme-opt:hover{transform:translateY(-2px)}
+.theme-opt .sw{display:block;width:100%;height:52px;border-radius:12px;position:relative;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(0,0,0,.07)}
+.theme-opt .sw i{position:absolute;border-radius:50%}
+.theme-opt small{display:block;font-weight:700;font-size:.68rem;color:var(--muted);margin-top:-4px}
+.theme-opt[aria-checked=true]{border-color:var(--a1);box-shadow:0 0 0 3px var(--aSoft)}
+.theme-opt[aria-checked=true]:after{content:"✓";position:absolute;top:12px;left:14px;width:20px;height:20px;border-radius:50%;background:var(--a1);color:#fff;font-size:.72rem;display:grid;place-items:center}
+/* ---- Password ---- */
+.check{display:flex;align-items:center;gap:8px;margin:12px 0;font-size:.82rem;font-weight:700;color:var(--muted)}
+.pw-status{min-height:1.3em;margin:10px 0 0!important;font-size:.84rem!important;font-weight:700;color:var(--green)!important}
+.pw-status.bad{color:var(--danger)!important}
+/* ---- Animated mood emoji ---- */
+.mood{position:relative;display:inline-block;line-height:1}
+.mood .face{display:inline-block;transform-origin:50% 85%}
+.mood-smile .face{animation:smileBounce 1.7s ease-in-out infinite}
+@keyframes smileBounce{0%,100%{transform:translateY(0) rotate(-5deg) scale(1)}25%{transform:translateY(-12%) rotate(5deg) scale(1.1)}50%{transform:translateY(0) rotate(-4deg) scale(1)}75%{transform:translateY(-6%) rotate(3deg) scale(1.05)}}
+.mood .spark{position:absolute;font-size:.36em;font-style:normal;opacity:0;animation:twinkle 1.9s ease-in-out infinite}
+.mood .spark.s1{left:-20%;top:2%}.mood .spark.s2{right:-18%;top:12%;animation-delay:.6s}.mood .spark.s3{right:4%;top:-26%;animation-delay:1.1s}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.3) rotate(0)}50%{opacity:1;transform:scale(1) rotate(25deg)}}
+.mood-cry .face{animation:cryShake 1.1s ease-in-out infinite}
+@keyframes cryShake{0%,100%{transform:translateX(0) rotate(0)}20%{transform:translateX(-4%) rotate(-6deg)}40%{transform:translateX(4%) rotate(6deg)}60%{transform:translateX(-3%) rotate(-3deg)}80%{transform:translateX(3%) rotate(3deg)}}
+.mood .tear{position:absolute;top:56%;font-size:.3em;font-style:normal;opacity:0;animation:tearFall 1.4s ease-in infinite}
+.mood .tear.t1{left:14%}.mood .tear.t2{right:14%;animation-delay:.7s}
+@keyframes tearFall{0%{opacity:0;transform:translateY(0) scale(.6)}20%{opacity:1}100%{opacity:0;transform:translateY(230%) scale(1)}}
+.shell .mood{font-size:1.65rem}.shell .mood .tear{font-size:.4em}
+.mood-card{display:flex;align-items:center;gap:16px;margin:0 0 12px;padding:14px 18px}
+.mood-card.smile{background:linear-gradient(135deg,var(--solid),var(--d1))}
+.mood-card.cry{background:linear-gradient(135deg,var(--solid),var(--m1));border-color:var(--mLine)}
+.mood-big{font-size:3.3rem;width:68px;text-align:center;flex-shrink:0}
+.mood-card strong{display:block;font-size:1.02rem;margin-bottom:3px}
+.dlg-mood{text-align:center;font-size:3.2rem;min-height:3.6rem;margin-bottom:6px}
+.mood-pop{position:fixed;inset:0;z-index:50;pointer-events:none;overflow:hidden;display:grid;place-items:center}
+.mood-pop .bubble{display:flex;flex-direction:column;align-items:center;gap:12px;padding:22px 30px;border-radius:28px;background:var(--solid);border:1px solid var(--line);box-shadow:0 18px 60px rgba(0,0,0,.25);animation:popIn 2.3s ease forwards;max-width:80vw;text-align:center}
+.mood-pop .bubble .mood{font-size:4.8rem}
+.mood-pop .bubble b{font-size:1rem}
+@keyframes popIn{0%{opacity:0;transform:scale(.4) translateY(30px)}14%{opacity:1;transform:scale(1.1)}24%{transform:scale(1)}78%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(.94) translateY(-18px)}}
+.mood-pop .fall{position:absolute;font-style:normal;opacity:0}
+.mood-pop.smile .fall{bottom:-8%;animation-name:riseUp;animation-timing-function:ease-out;animation-fill-mode:forwards}
+.mood-pop.cry .fall{top:-8%;animation-name:rainDown;animation-timing-function:ease-in;animation-fill-mode:forwards}
+@keyframes riseUp{0%{opacity:0;transform:translateY(0) rotate(0)}15%{opacity:1}100%{opacity:0;transform:translateY(-105vh) rotate(40deg)}}
+@keyframes rainDown{0%{opacity:0;transform:translateY(0)}15%{opacity:.95}100%{opacity:0;transform:translateY(105vh)}}
+</style>
+</head>
+<body>
+<section class="auth-wrap" id="authScreen">
+  <div class="auth-card">
+    <div class="auth-top"><button class="action secondary theme-btn" type="button"></button></div>
+    <div style="text-align:center;font-size:2.5rem" aria-hidden="true">🐚🌸🐚</div>
+    <h1>Shell Savings</h1>
+    <p class="subtitle">Sign in to keep your savings progress safe in the cloud. ✨</p>
+    <form id="authForm">
+      <div id="nameWrap" hidden><label class="auth-label" for="authName">Your name</label>
+      <input class="auth-field" id="authName" type="text" autocomplete="name" maxlength="40" placeholder="e.g. Devni"></div>
+      <label class="auth-label" for="authEmail">Email address</label>
+      <input class="auth-field" id="authEmail" type="email" autocomplete="email" placeholder="you@example.com" required>
+      <label class="auth-label" for="authPassword">Password</label>
+      <input class="auth-field" id="authPassword" type="password" autocomplete="current-password" minlength="6" placeholder="At least 6 characters" required>
+      <div class="auth-actions">
+        <button class="action primary" id="signInBtn" type="submit">Sign in</button>
+        <button class="action secondary" id="signUpBtn" type="button">Create account</button>
+      </div>
+    </form>
+    <div class="auth-divider">— or —</div>
+    <button class="action secondary" id="googleBtn" type="button" style="width:100%">Continue with Google</button>
+    <button class="action secondary" id="resetPasswordBtn" type="button" style="width:100%;margin-top:9px">Forgot password?</button>
+    <div class="auth-status" id="authStatus" role="status" aria-live="polite"></div>
+    <p class="note">Your account keeps your progress separate from other users. Never share your password with anyone.</p>
+  </div>
+</section>
+
+<main id="trackerApp" hidden>
+  <div class="account-bar"><span class="acct-left"><span id="barAvatar"></span><span class="acct-name"><strong id="accountName">Hello 👋</strong><small class="account-email" id="accountEmail"></small></span></span><span class="bar-actions"><button class="sync-chip" id="syncStatus" type="button">☁️ Saved</button><button class="action secondary theme-btn" type="button"></button><button class="action secondary" id="signOutBtn" type="button">Sign out</button></span></div>
+  <div class="greet" id="greetCard" role="status" hidden><span class="g-emoji" id="greetEmoji" aria-hidden="true">👋</span><div><strong id="greetTitle"></strong><p id="greetText"></p></div><button class="g-close" id="greetClose" type="button" aria-label="Dismiss greeting">✕</button></div>
+  <header class="hero">
+    <span class="shell-hero" id="heroEmoji" aria-hidden="true">🐚🌸🐚</span>
+    <span class="eyebrow">A LITTLE SAVING, EVERY DAY</span>
+    <h1 id="heroTitle">Shell Savings</h1>
+    <p class="subtitle" id="heroSubtitle"></p>
+    <p class="today-chip" id="todayInfo" hidden></p>
+  </header>
+
+  <nav class="tabbar" role="tablist" aria-label="Sections">
+    <button class="tab" role="tab" data-tab="plans" type="button"><span class="ti" aria-hidden="true">📒</span>Plans</button>
+    <button class="tab" role="tab" data-tab="track" type="button"><span class="ti" aria-hidden="true">🐚</span>Track</button>
+    <button class="tab" role="tab" data-tab="progress" type="button"><span class="ti" aria-hidden="true">📊</span>Progress</button>
+    <button class="tab" role="tab" data-tab="profile" type="button"><span class="ti" aria-hidden="true">👤</span>Profile</button>
+    <button class="tab" role="tab" data-tab="settings" type="button"><span class="ti" aria-hidden="true">⚙️</span>Settings</button>
+  </nav>
+  <div class="plan-switch" id="planSwitch" hidden><label for="planSelect">📒 Plan</label><select id="planSelect"></select></div>
+
+  <div class="tab-panel" data-panel="plans" hidden>
+    <div id="planList"></div>
+    <button class="action primary" id="newPlanBtn" type="button" style="width:100%">＋ New plan</button>
+    <p class="note" id="planHint"></p>
+  </div>
+
+  <div class="tab-panel" data-panel="track" hidden>
+    <section class="panel mood-card" id="moodCard" aria-live="polite" hidden><div class="mood-big" id="moodFace" aria-hidden="true"></div><div><strong id="moodTitle"></strong><p id="moodText"></p></div></section>
+    <div class="controls"><button class="action primary" id="todayBtn">＋ Mark next shell saved</button></div>
+  <div class="section-head">
+    <div><h2>Colour your shells 🐚</h2><p>Tap any shell to enter or edit that day’s saved amount</p></div>
+    <span class="legend" id="legend">😊 saved · 😢 missed</span>
+  </div>
+  <section class="shell-grid" id="shellGrid" aria-label="Daily savings shells"></section>
+
+  </div>
+
+  <div class="tab-panel" data-panel="progress" hidden>
+  <section class="stats" aria-label="Savings summary">
+    <div class="stat" data-icon="💗"><small>💰 SAVED SO FAR</small><strong id="saved">—</strong></div>
+    <div class="stat" data-icon="🎯"><small>🎯 SAVINGS GOAL</small><strong class="target" id="goal">—</strong></div>
+    <div class="stat" data-icon="🐚"><small>🐚 DAYS COMPLETED</small><strong id="completed">—</strong></div>
+    <div class="stat" data-icon="🌷"><small>🌷 LEFT TO SAVE</small><strong id="remaining">—</strong></div>
+  </section>
+
+
+  <section class="panel progress-panel" aria-label="Overall savings progress">
+    <div class="progress-layout">
+      <div class="progress-ring" id="progressRing" role="img" aria-label="0 percent completed">
+        <div class="progress-ring-inner"><strong id="ringPercent">0%</strong><span>COMPLETE</span></div>
+      </div>
+      <div class="progress-copy">
+        <div class="progress-top"><span>Your little wins</span><span id="percent">0%</span></div>
+        <div class="progress-track" role="progressbar" aria-label="Savings progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressbar"><div class="progress-fill" id="fill"></div></div>
+        <div class="progress-foot"><span id="daysLeft">—</span><span id="shellAmountSummary"></span></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="panel streak-panel" id="streakPanel" aria-label="Savings streak" aria-live="polite">
+    <div class="streak-now"><span class="flame" aria-hidden="true">🔥</span><div><span class="num" id="streakNow">0</span><small id="streakNowLabel">day streak</small></div></div>
+    <div><span class="num" id="streakBest">0</span><small>best streak</small></div>
+    <p id="streakMsg"></p>
+  </section>
+
+  <section class="section-head"><div><h2>Little milestones 🌈</h2><p>Celebrate every step of the way</p></div></section>
+  <section class="milestones" id="milestones"></section>
+
+  </div>
+
+  <div class="tab-panel" data-panel="profile" hidden>
+  <section class="panel" id="profilePanel" style="margin:0 0 14px;padding:16px">
+    <div class="panel-title">👤 Profile</div>
+    <div class="profile-head"><span id="profileAvatar"></span><div><strong id="profileNameShown">—</strong><small id="profileEmail"></small><small id="profileSince"></small></div></div>
+    <div class="controls" style="margin:0 0 12px"><button class="action secondary" id="photoBtn" type="button">📷 Change photo</button><button class="action secondary" id="photoRemoveBtn" type="button">Remove photo</button></div>
+    <input type="file" id="photoInput" accept="image/*" hidden>
+    <p class="hint">Or pick a fun avatar:</p>
+    <div class="emoji-avatars" id="emojiAvatars"></div>
+    <label class="challenge-field">Display name<input id="profileName" type="text" maxlength="40" autocomplete="name" placeholder="Your name"></label>
+    <button class="action primary" id="saveNameBtn" type="button" style="width:100%;margin-top:10px">Save name</button>
+    <p class="pw-status" id="profileStatus" role="status" aria-live="polite"></p>
+    <div class="subhead">📈 Your savings story</div>
+    <div class="profile-stats" id="profileStats"></div>
+    <div class="subhead">🏅 Badges</div>
+    <div class="badges" id="badges"></div>
+    <label class="check" style="margin-top:14px"><input type="checkbox" id="greetToggle"> Show a greeting when I open the app</label>
+  </section>
+  </div>
+
+  <div class="tab-panel" data-panel="settings" hidden>
+  <section class="panel amount-panel" aria-label="Plan settings" style="margin:0 0 14px;padding:16px">
+    <div style="font-weight:800;margin-bottom:10px">🎯 Plan settings</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px">
+      <label class="challenge-field" style="grid-column:1/-1">Plan name<input id="planNameInput" type="text" maxlength="40" autocomplete="off"></label>
+      <label class="challenge-field">Savings goal (Rs.)<input id="goalInput" type="number" inputmode="numeric" min="1" max="10000000" step="1"></label>
+      <label class="challenge-field">Number of days<input id="daysInput" type="number" inputmode="numeric" min="1" max="365" step="1"></label>
+      <label class="challenge-field">Default per day (Rs.)<input id="shellAmountInput" type="number" inputmode="numeric" min="1" max="1000000" step="1"></label>
+      <label class="challenge-field">Start date<input id="startInput" type="date"></label>
+    </div>
+    <button class="action primary" id="saveChallengeBtn" type="button" style="width:100%;margin-top:12px">Save plan settings</button>
+    <p id="challengeHelp" style="margin:8px 0 0;color:var(--muted);font-size:.82rem">Choose 1 to 365 days. Set a start date so “today” and your streak follow the real date.</p>
+  </section>
+
+
+    <section class="panel" style="padding:16px;margin:0 0 14px">
+      <div class="panel-title">📊 Export to Excel</div>
+      <p class="hint">Download your savings as an .xlsx spreadsheet with a summary, a day-by-day log (date, status, amount, running total) and totals.</p>
+      <div class="controls" style="margin:0">
+        <button class="action primary" id="exportXlsxBtn" type="button">Export this plan</button>
+        <button class="action secondary" id="exportAllXlsxBtn" type="button">Export all plans</button>
+      </div>
+      <div class="controls" style="margin:10px 0 0"><button class="action secondary" id="exportBtn" type="button">Backup as JSON</button></div>
+    </section>
+
+    <section class="panel" style="padding:16px;margin:0 0 14px">
+      <div class="panel-title">🎨 Theme</div>
+      <p class="hint">Pick the look you like best. It is remembered on this device.</p>
+      <div class="theme-grid" id="themeGrid" role="radiogroup" aria-label="Colour theme"></div>
+    </section>
+
+    <section class="panel" style="padding:16px;margin:0 0 14px">
+      <div class="panel-title">😊 Emoji style</div>
+      <p class="hint">Choose the faces used for saved and missed days. It is remembered on this device.</p>
+      <div class="theme-grid" id="packGrid" role="radiogroup" aria-label="Emoji style"></div>
+    </section>
+
+    <section class="panel" id="passwordPanel" style="padding:16px;margin:0 0 14px">
+      <div class="panel-title">🔐 Change password</div>
+      <p class="hint" id="pwHint"></p>
+      <form id="pwForm" autocomplete="off" novalidate>
+        <div id="pwCurrentWrap"><label class="challenge-field">Current password<input id="pwCurrent" type="password" autocomplete="current-password"></label></div>
+        <label class="challenge-field" style="margin-top:10px">New password<input id="pwNew" type="password" autocomplete="new-password" minlength="6" placeholder="At least 6 characters"></label>
+        <label class="challenge-field" style="margin-top:10px">Confirm new password<input id="pwConfirm" type="password" autocomplete="new-password" minlength="6"></label>
+        <label class="check"><input type="checkbox" id="pwShow"> Show passwords</label>
+        <button class="action primary" id="pwBtn" type="submit" style="width:100%">Update password</button>
+        <p class="pw-status" id="pwStatus" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="panel" style="padding:16px;margin:0 0 14px">
+      <div class="panel-title">🔎 Cloud sync check</div>
+      <p class="hint">Compares this device with your account in the cloud. Use it if progress looks different on another device.</p>
+      <button class="action secondary" id="checkSyncBtn" type="button" style="width:100%">Check cloud sync</button>
+      <p class="sync-out" id="syncCheckOut" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="panel" style="padding:16px;margin:0 0 14px">
+      <div class="panel-title">🧰 This plan</div>
+      <div class="controls" style="margin:0">
+        <button class="action secondary" id="resetBtn" type="button">Reset progress</button>
+        <button class="action secondary danger" id="deletePlanBtn" type="button">Delete plan</button>
+      </div>
+    </section>
+  <section class="panel" style="margin-top:14px">
+    <h3>🌼 Your savings promise</h3>
+    <p>Enter the amount you actually set aside each day. Save a bit more one day and a bit less the next if that is what works for you. Every real saving counts.</p>
+  </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <p class="note">Your progress syncs to your account in the cloud. Sign in on another device to continue your plans.</p>
+</main>
+
+<dialog id="dayAmountDialog">
+  <div class="dlg-mood" id="dayMood" aria-hidden="true"></div>
+  <h3 id="dayAmountTitle">Day 1 savings 🐚</h3>
+  <p id="dayAmountHelp">Enter the amount you actually saved on this day. You can enter more or less than your default amount.</p>
+  <label for="dayAmountInput" style="display:block;font-weight:800;margin:12px 0 6px">Saved amount (Rs.)</label>
+  <input id="dayAmountInput" type="number" inputmode="numeric" min="1" max="1000000" step="1" class="dlg-input">
+  <p id="dayAmountError" style="color:var(--danger);font-size:.82rem;min-height:1.2em"></p>
+  <div class="dialog-actions" style="flex-wrap:wrap">
+    <button class="action secondary" id="cancelDayAmount" type="button">Cancel</button>
+    <button class="action secondary" id="removeDayAmount" type="button">Clear day</button>
+    <button class="action primary" id="saveDayAmount" type="button">Save amount</button>
+  </div>
+</dialog>
+
+<dialog id="shrinkDialog">
+  <h3>Shorten your challenge? 🌷</h3>
+  <p id="shrinkText"></p>
+  <div class="dialog-actions">
+    <button class="action secondary" id="cancelShrink" type="button">Keep days</button>
+    <button class="action primary" id="confirmShrink" type="button">Remove &amp; save</button>
+  </div>
+</dialog>
+
+<dialog id="nameDialog">
+  <h3>Welcome! What should we call you? 😊</h3>
+  <p>Your name appears at the top of the app and in your greeting. You can change it later in the Profile tab.</p>
+  <input id="nameDialogInput" type="text" maxlength="40" autocomplete="name" placeholder="Your name" class="dlg-input">
+  <p id="nameDialogError" style="color:var(--danger);min-height:1.2em;margin:6px 0 0;font-size:.82rem"></p>
+  <div class="dialog-actions" style="margin-top:8px"><button class="action primary" id="nameDialogSave" type="button">Continue</button></div>
+</dialog>
+
+<dialog id="newPlanDialog">
+  <h3>New savings plan 🌱</h3>
+  <label class="challenge-field">Plan name<input id="npName" type="text" maxlength="40" placeholder="e.g. Emergency fund" autocomplete="off"></label>
+  <label class="challenge-field" style="margin-top:10px">Savings goal (Rs.)<input id="npGoal" type="number" inputmode="numeric" min="1" max="10000000" step="1" value="10000"></label>
+  <label class="challenge-field" style="margin-top:10px">Number of days<input id="npDays" type="number" inputmode="numeric" min="1" max="365" step="1" value="100"></label>
+  <label class="challenge-field" style="margin-top:10px">Start date<input id="npStart" type="date"></label>
+  <p id="npError" style="color:var(--danger);font-size:.82rem;min-height:1.2em;margin:8px 0 0"></p>
+  <div class="dialog-actions">
+    <button class="action secondary" id="cancelNewPlan" type="button">Cancel</button>
+    <button class="action primary" id="createPlanBtn" type="button">Create plan</button>
+  </div>
+</dialog>
+
+<dialog id="deletePlanDialog">
+  <h3>Delete this plan? 🗑️</h3>
+  <p id="deletePlanText"></p>
+  <div class="dialog-actions">
+    <button class="action secondary" id="cancelDeletePlan" type="button">Keep plan</button>
+    <button class="action primary" id="confirmDeletePlan" type="button">Delete plan</button>
+  </div>
+</dialog>
+
+<dialog id="resetDialog">
+  <h3>Start fresh? 🌷</h3>
+  <p>This will clear all shells in <b>this plan</b> (its name, goal and days stay) and <b>permanently delete your saved progress from your account</b>, on every device you use. Export your progress first if you want a backup.</p>
+  <div class="dialog-actions">
+    <button class="action secondary" id="cancelReset">Keep progress</button>
+    <button class="action primary" id="confirmReset">Reset tracker</button>
+  </div>
+</dialog>
+<script src="./config.js"></script>
+<script src="./vendor/supabase-js-2.45.4.umd.js"></script>
+<script>
+(() => {
+  const KEY = 'shellSavings100_v1';
+  const MIGRATED_KEY = 'shellSavings100_cloud_migrated_v1';
+  const AMOUNT_KEY = 'shellSavings100_amount_v1';
+  const GOAL_KEY = 'shellSavings100_goal_v1';
+  const DAYS_KEY = 'shellSavings100_days_v1';
+  const MAX_AMOUNT = 1000000, MAX_GOAL = 10000000, MAX_DAYS = 365;
+  const START_KEY = 'shellSavings100_start_v1';
+  const PLAN_KEY = 'shellSavings_activePlan_v1', TAB_KEY = 'shellSavings_tab_v1', MAX_PLANS = 10;
+  let goalAmount = 10000, totalDays = 100, startDate = '';
+  let plans = [], activeId = null, planName = 'My savings plan', tab = 'track';
+  let amountPerShell = 100;
+  const authScreen = document.getElementById('authScreen');
+  const trackerApp = document.getElementById('trackerApp');
+  const authForm = document.getElementById('authForm');
+  const emailInput = document.getElementById('authEmail');
+  const passwordInput = document.getElementById('authPassword');
+  const authStatus = document.getElementById('authStatus');
+  const grid = document.getElementById('shellGrid');
+  const savedEl = document.getElementById('saved');
+  const shellAmountInput = document.getElementById('shellAmountInput');
+  const goalInput = document.getElementById('goalInput');
+  const daysInput = document.getElementById('daysInput');
+  const startInput = document.getElementById('startInput');
+  const planNameInput = document.getElementById('planNameInput');
+  const planSwitch = document.getElementById('planSwitch');
+  const planSelect = document.getElementById('planSelect');
+  const saveChallengeBtn = document.getElementById('saveChallengeBtn');
+  const challengeHelp = document.getElementById('challengeHelp');
+  const shellAmountSummary = document.getElementById('shellAmountSummary');
+  const completedEl = document.getElementById('completed');
+  const remainingEl = document.getElementById('remaining');
+  const percentEl = document.getElementById('percent');
+  const ringPercentEl = document.getElementById('ringPercent');
+  const progressRing = document.getElementById('progressRing');
+  const fill = document.getElementById('fill');
+  const progressbar = document.getElementById('progressbar');
+  const daysLeft = document.getElementById('daysLeft');
+  const toast = document.getElementById('toast');
+  const money = n => 'Rs. ' + n.toLocaleString('en-LK');
+  let completed = new Set();
+  let dayAmounts = {};
+  let editingDay = null;
+  let currentUser = null;
+  let saveQueue = Promise.resolve();
+
+  if (!window.SHELL_SUPABASE_URL || !window.SHELL_SUPABASE_PUBLISHABLE_KEY ||
+      window.SHELL_SUPABASE_URL.includes('YOUR_PROJECT') || window.SHELL_SUPABASE_PUBLISHABLE_KEY.includes('YOUR_PUBLISHABLE')) {
+    authStatus.textContent = 'Setup needed: add your Supabase URL and publishable key to config.js, then redeploy.';
+    document.getElementById('signInBtn').disabled = true;
+    document.getElementById('signUpBtn').disabled = true;
+    document.getElementById('googleBtn').disabled = true;
+    document.getElementById('resetPasswordBtn').disabled = true;
+    return;
+  }
+  if (!window.supabase || !window.supabase.createClient) {
+    authStatus.textContent = 'Could not load the sign-in library. Check your internet connection and reload.';
+    return;
+  }
+  // Where Supabase sends people back after Google sign-in, email confirmation and password reset.
+  // Includes the folder, so it also works on GitHub project pages (https://name.github.io/repo/).
+  const APP_URL = window.location.origin + window.location.pathname.replace(/[^\/]*$/, '');
+  let recoveryMode = /type=recovery/.test(location.hash + location.search);   // opened from a "Forgot password" email link
+  const supabase = window.supabase.createClient(window.SHELL_SUPABASE_URL, window.SHELL_SUPABASE_PUBLISHABLE_KEY);
+  supabase.auth.onAuthStateChange(event => { if (event === 'PASSWORD_RECOVERY') { recoveryMode = true; if (currentUser) enterRecovery(); } });
+
+  function readLocalProgress() {
+    try {
+      const parsed = JSON.parse(localStorage.getItem(KEY) || '[]');
+      return Array.isArray(parsed) ? parsed.filter(n => Number.isInteger(n) && n >= 1 && n <= MAX_DAYS) : [];
+    } catch (e) { return []; }
+  }
+  function readLocalAmount() {
+    const value = Number(localStorage.getItem(AMOUNT_KEY) || 100);
+    return Number.isInteger(value) && value >= 1 && value <= MAX_AMOUNT ? value : 100;
+  }
+  function readLocalGoal() {
+    const v = Number(localStorage.getItem(GOAL_KEY) || 10000);
+    return Number.isInteger(v) && v >= 1 && v <= MAX_GOAL ? v : 10000;
+  }
+  function readLocalDays() {
+    const v = Number(localStorage.getItem(DAYS_KEY) || 100);
+    return Number.isInteger(v) && v >= 1 && v <= MAX_DAYS ? v : 100;
+  }
+  function saveLocalSettings() {
+    try {
+      localStorage.setItem(GOAL_KEY, String(goalAmount)); localStorage.setItem(DAYS_KEY, String(totalDays));
+      if (startDate) localStorage.setItem(START_KEY, startDate); else localStorage.removeItem(START_KEY);
+    } catch (e) {}
+  }
+  // ---- real-date helpers (all in the device's local time zone) ----
+  function validDate(str) {
+    if (typeof str !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(str)) return false;
+    const [y, m, d] = str.split('-').map(Number), t = new Date(Date.UTC(y, m - 1, d));
+    return t.getUTCFullYear() === y && t.getUTCMonth() === m - 1 && t.getUTCDate() === d;
+  }
+  function readLocalStart() { try { const v = localStorage.getItem(START_KEY) || ''; return validDate(v) ? v : ''; } catch (e) { return ''; } }
+  const dateNum = str => { const [y, m, d] = str.split('-').map(Number); return Date.UTC(y, m - 1, d) / 86400000; };
+  const todayNum = () => { const n = new Date(); return Date.UTC(n.getFullYear(), n.getMonth(), n.getDate()) / 86400000; };
+  // Today's day number in the challenge (1 = start date). null when no start date is set.
+  const dayNumFor = start => start ? todayNum() - dateNum(start) + 1 : null;
+  const currentDayNum = () => dayNumFor(startDate);
+  const fmtDate = str => { const [y, m, d] = str.split('-').map(Number); return new Date(y, m - 1, d).toLocaleDateString(undefined, {day:'numeric', month:'short', year:'numeric'}); };
+  const plural = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
+  function showStatus(message, isError=false) {
+    authStatus.textContent = message;
+    authStatus.style.color = isError ? 'var(--danger)' : 'var(--green)';
+  }
+  function showApp(user) {
+    currentUser = user;
+    authScreen.hidden = true;
+    trackerApp.hidden = false;
+    document.getElementById('accountEmail').textContent = user.email || 'Google account';
+    updatePasswordPanel();
+    if (typeof showQuickProfile === 'function') showQuickProfile(user);
+  }
+  function showLogin(message='') {
+    currentUser = null;
+    trackerApp.hidden = true;
+    authScreen.hidden = false;
+    showStatus(message);
+  }
+  const ROW_COLS = 'id, name, created_at, completed_days, amount_per_shell, day_amounts, goal_amount, total_days, start_date';
+  let pendingOps = [], lastSync = 0;
+  const inRange = (v, max) => Number.isInteger(v) && v >= 1 && v <= max;
+  const cleanName = v => String(v || '').trim().slice(0, 40);
+  const esc = v => String(v).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const newId = () => (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
+    : 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => { const r = Math.random() * 16 | 0; return (c === 'x' ? r : (r & 3 | 8)).toString(16); });
+  function newPlan(o) {
+    return { id: newId(), name: cleanName(o.name) || 'My savings plan', total: o.total, goal: o.goal, amount: o.amount,
+             start: o.start || '', days: new Set(), amounts: {}, created: new Date().toISOString() };
+  }
+  const clonePlan = st => ({...st, days: new Set(st.days), amounts: {...st.amounts}});
+  function parseRow(data) {
+    const total = Number(data.total_days), goal = Number(data.goal_amount), amount = Number(data.amount_per_shell);
+    const st = { id: data.id, name: cleanName(data.name) || 'My savings plan', created: data.created_at || '',
+                 total: inRange(total, MAX_DAYS) ? total : 100, goal: inRange(goal, MAX_GOAL) ? goal : 10000,
+                 amount: inRange(amount, MAX_AMOUNT) ? amount : 100, days: new Set(), amounts: {},
+                 start: validDate(data.start_date) ? data.start_date : '' };
+    const stored = data.day_amounts && typeof data.day_amounts === 'object' && !Array.isArray(data.day_amounts) ? data.day_amounts : {};
+    for (const n of data.completed_days || []) {
+      if (!inRange(n, st.total)) continue;
+      const v = Number(stored[String(n)]);
+      st.days.add(n);
+      st.amounts[String(n)] = inRange(v, MAX_AMOUNT) ? v : st.amount;
+    }
+    return st;
+  }
+  function applyOps(st, ops) {
+    for (const op of ops) {
+      if (op.t === 'set') { if (op.day <= st.total) { st.days.add(op.day); st.amounts[String(op.day)] = op.amount; } }
+      else if (op.t === 'clear') { st.days.delete(op.day); delete st.amounts[String(op.day)]; }
+      else if (op.t === 'reset') { st.days.clear(); st.amounts = {}; }
+      else if (op.t === 'settings') {
+        if (op.name) st.name = op.name;
+        st.goal = op.goal; st.total = op.days; st.amount = op.amount; st.start = op.start || '';
+        for (const d of [...st.days]) if (d > st.total) { st.days.delete(d); delete st.amounts[String(d)]; }
+      }
+    }
+  }
+  // The globals (completed, dayAmounts, goalAmount ...) always hold the ACTIVE plan; plans[] holds all of them.
+  const planById = id => plans.find(p => p.id === id);
+  function loadActive() {
+    const st = planById(activeId); if (!st) return;
+    completed = new Set(st.days); dayAmounts = {...st.amounts}; goalAmount = st.goal; totalDays = st.total;
+    amountPerShell = st.amount; startDate = st.start || ''; planName = st.name;
+  }
+  function stashActive() {
+    const st = planById(activeId); if (!st) return;
+    st.days = new Set(completed); st.amounts = {...dayAmounts}; st.goal = goalAmount; st.total = totalDays;
+    st.amount = amountPerShell; st.start = startDate; st.name = planName;
+  }
+  function setPlans(list, preferId) {
+    plans = list.slice().sort((a, b) => String(a.created).localeCompare(String(b.created)));
+    const want = preferId || activeId;
+    activeId = plans.some(p => p.id === want) ? want : (plans[0] ? plans[0].id : null);
+    loadActive();
+  }
+  function rowFrom(st) {
+    return { id: st.id, user_id: currentUser.id, name: st.name, completed_days: [...st.days].sort((a,b)=>a-b),
+             amount_per_shell: st.amount, day_amounts: st.amounts, goal_amount: st.goal, total_days: st.total,
+             start_date: st.start || null, updated_at: new Date().toISOString(), ...(st.created ? {created_at: st.created} : {}) };
+  }
+  function writeLocal() {
+    try {
+      localStorage.setItem(KEY, JSON.stringify([...completed].sort((a,b)=>a-b)));
+      saveLocalSettings();
+      localStorage.setItem(AMOUNT_KEY, String(amountPerShell));
+      localStorage.setItem('shellSavings100_day_amounts_v1', JSON.stringify(dayAmounts));
+      if (activeId) localStorage.setItem(PLAN_KEY, activeId);
+    } catch (e) {}
+  }
+  async function fetchPlans() {
+    const { data, error } = await supabase.from('savings_plans').select(ROW_COLS).eq('user_id', currentUser.id).order('created_at');
+    if (error) throw error;
+    return data || [];
+  }
+  async function upsertPlans(list) {
+    if (!list.length) return;
+    const rows = list.map(rowFrom);
+    const { data, error } = await supabase.from('savings_plans').upsert(rows, {onConflict: 'id'}).select('id');
+    if (error) throw error;
+    if (!data || data.length !== rows.length) throw new Error('The server did not confirm the save (permission problem?).');
+  }
+  async function loadCloudProgress(user) {
+    toast.textContent = 'Loading your plans…';
+    pendingOps = [];
+    let list = (await fetchPlans()).map(parseRow);
+    if (!list.length) {
+      // Brand-new account: create the first plan (and import old browser-only progress once).
+      const old = localStorage.getItem(MIGRATED_KEY) ? [] : readLocalProgress();
+      const first = newPlan({name: 'My savings plan', goal: readLocalGoal(), total: readLocalDays(), start: readLocalStart(), amount: readLocalAmount()});
+      first.days = new Set(old.filter(n => n <= first.total));
+      for (const d of first.days) first.amounts[String(d)] = first.amount;
+      await upsertPlans([first]);
+      list = [first];
+    }
+    localStorage.setItem(MIGRATED_KEY, 'yes');
+    let pref = ''; try { pref = localStorage.getItem(PLAN_KEY) || ''; } catch (e) {}
+    setPlans(list, pref);
+    writeLocal();
+    lastSync = Date.now();
+    let t = 'track'; try { t = localStorage.getItem(TAB_KEY) || 'track'; } catch (e) {}
+    setTab(t);
+    setSync('ok');
+    toast.textContent = 'Your plans are synced ☁️';
+    try { await initProfile(user); } catch (e) { console.warn('Profile:', e); }
+  }
+  // Read-modify-write: fetch the newest cloud copy of ALL plans, re-apply only THIS device's pending changes, save, then show the merged result.
+  async function syncNow() {
+    if (!currentUser) return;
+    stashActive();
+    const ops = pendingOps.slice();
+    const rows = await fetchPlans();
+    const map = new Map(rows.map(r => { const st = parseRow(r); return [st.id, st]; }));
+    const touched = new Set(), removed = new Set();
+    for (const op of ops) {
+      if (op.t === 'create') { if (!map.has(op.plan.id)) map.set(op.plan.id, clonePlan(op.plan)); touched.add(op.plan.id); }
+      else if (op.t === 'delete') { map.delete(op.p); touched.delete(op.p); removed.add(op.p); }
+      else { const st = map.get(op.p); if (st) { applyOps(st, [op]); touched.add(op.p); } }
+    }
+    await upsertPlans([...touched].map(id => map.get(id)).filter(Boolean));
+    for (const id of removed) {
+      const { error } = await supabase.from('savings_plans').delete().eq('id', id);
+      if (error) throw error;
+    }
+    pendingOps = pendingOps.slice(ops.length);
+    lastSync = Date.now();
+    if (!pendingOps.length && currentUser) { setPlans([...map.values()], activeId); writeLocal(); render(); }
+    if (ops.length) toast.textContent = 'Saved to your account ☁️';
+  }
+  function persist(op) {
+    if (op) { if (op.t !== 'create' && !op.p) op.p = activeId; pendingOps.push(op); }
+    writeLocal();
+    if (!currentUser) return;
+    setSync('saving');
+    saveQueue = saveQueue.then(syncNow).then(() => { if (!pendingOps.length) setSync('ok'); })
+      .catch(error => { setSync('error', error.message); toast.textContent = 'Not saved to the cloud yet: ' + error.message + '. Tap ⚠️ at the top to retry.'; });
+  }
+  // Shows whether your latest change has reached your account.
+  let syncError = '';
+  function setSync(state, msg) {
+    syncError = msg || '';
+    const el = document.getElementById('syncStatus'); if (!el) return;
+    el.className = 'sync-chip sync-' + state;
+    el.textContent = state === 'saving' ? '⏳ Saving…' : state === 'error' ? '⚠️ Not saved · tap to retry' : '☁️ Saved';
+    el.title = syncError;
+  }
+  function retrySync() {
+    if (!currentUser) return;
+    setSync('saving');
+    saveQueue = saveQueue.then(syncNow).then(() => { setSync('ok'); toast.textContent = 'Saved to your account ☁️'; })
+      .catch(error => { setSync('error', error.message); toast.textContent = 'Still not saved: ' + error.message; });
+  }
+  document.getElementById('syncStatus').addEventListener('click', () => { if (document.getElementById('syncStatus').classList.contains('sync-error')) retrySync(); });
+  window.addEventListener('beforeunload', e => { if (pendingOps.length) { e.preventDefault(); e.returnValue = ''; } });
+  // Pull in changes made on your other devices whenever you come back to the page.
+  function requestSync() {
+    if (!currentUser || document.hidden) return;
+    if (Date.now() - lastSync < 3000 || document.querySelector('dialog[open]')) return;
+    lastSync = Date.now();
+    saveQueue = saveQueue.then(syncNow).catch(error => { if (pendingOps.length) setSync('error', error.message); });
+  }
+  document.addEventListener('visibilitychange', requestSync);
+  window.addEventListener('focus', requestSync);
+  window.addEventListener('online', requestSync);
+  setInterval(requestSync, 60000);
+  // Move the "today" highlight when the date changes while the page stays open.
+  const checkNewDay = () => { if (renderedDay !== null && todayNum() !== renderedDay) render(); };
+  setInterval(checkNewDay, 60000);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) checkNewDay(); });
+  function savedTotal() { return [...completed].reduce((sum, day) => sum + (Number(dayAmounts[String(day)]) || amountPerShell), 0); }
+  function syncSettingsInputs() {
+    goalInput.value = String(goalAmount); daysInput.value = String(totalDays); shellAmountInput.value = String(amountPerShell); startInput.value = startDate; planNameInput.value = planName;
+    amountTouched = false;
+  }
+  function render() {
+    grid.innerHTML = '';
+    grid.setAttribute('aria-label', `${totalDays} daily savings shells`);
+    const open = highlightDay();
+    for (let day=1; day<=totalDays; day++) {
+      const done = completed.has(day), missed = isMissed(day);
+      const amount = Number(dayAmounts[String(day)] || 0);
+      const btn = document.createElement('button');
+      btn.className = 'shell' + (done ? ' done' : '') + (missed ? ' missed' : '') + (day === open ? ' today' : '');
+      btn.type = 'button';
+      btn.setAttribute('aria-pressed', String(done));
+      btn.setAttribute('aria-label', `Day ${day}, ${done ? 'saved ' + money(amount) : missed ? 'missed, tap to record a saving' : 'not saved, default ' + money(amountPerShell)}`);
+      btn.innerHTML = `<span class="emoji" aria-hidden="true">${done ? moodHtml('smile', pack.saved, true) : missed ? moodHtml('cry', pack.missed, true) : pack.empty}</span><span class="day">Day ${day}</span><span class="amount">${done ? money(amount) : missed ? 'Missed' : money(amountPerShell)}</span>`;
+      btn.addEventListener('click', () => openDayEditor(day));
+      grid.appendChild(btn);
+    }
+    const count = completed.size;
+    const total = savedTotal();
+    const pct = Math.min(100, Math.round((total / goalAmount) * 100));
+    renderHero();
+    document.getElementById('goal').textContent = money(goalAmount);
+    document.title = `${planName} — Shell Savings`;
+    if (![planNameInput, goalInput, daysInput, shellAmountInput, startInput].includes(document.activeElement)) syncSettingsInputs();
+    savedEl.textContent = money(total);
+    shellAmountSummary.textContent = `${money(amountPerShell)} default per day`;
+    completedEl.textContent = `${count} / ${totalDays}`;
+    remainingEl.textContent = money(Math.max(0, goalAmount-total));
+    percentEl.textContent = `${pct}%`;
+    ringPercentEl.textContent = `${pct}%`;
+    progressRing.style.setProperty('--progress', `${pct}%`);
+    progressRing.setAttribute('aria-label', `${pct}% of savings goal completed`);
+    fill.style.width = `${pct}%`;
+    progressbar.setAttribute('aria-valuenow', pct);
+    daysLeft.textContent = total >= goalAmount ? 'Savings goal reached!' : `${totalDays-count} ${totalDays-count === 1 ? 'day' : 'days'} to go`;
+    renderMilestones(total);
+    renderToday();
+    renderPlans();
+    if (typeof renderProfileExtras === 'function') renderProfileExtras();
+  }
+  // Milestones light up as you reach them; the next one shows how much is left.
+  const MILESTONES = [10, 25, 50, 75, 100];
+  let lastMs = null, lastMsPlan = null, lastMsGoal = null;
+  function milestoneLevel(total) { let lvl = 0; for (const p of MILESTONES) if (total >= Math.round(goalAmount * p / 100)) lvl = p; return lvl; }
+  function renderMilestones(total) {
+    let nextMarked = false;
+    document.getElementById('milestones').innerHTML = MILESTONES.map(p => {
+      const target = Math.round(goalAmount * p / 100), hit = total >= target;
+      let cls = 'milestone', right;
+      if (hit) { cls += ' done'; right = p === 100 ? 'Goal reached 🎉' : `${p}% reached ✅`; }
+      else if (!nextMarked) { nextMarked = true; cls += ' next'; right = `${money(target - total)} to go`; }
+      else right = `${p}% of goal`;
+      return `<div class="${cls}"><span>${hit ? pack.milestone + ' ' : ''}${money(target)} saved</span><b>${right}</b></div>`;
+    }).join('');
+    const lvl = milestoneLevel(total);
+    if (lastMsPlan === activeId && lastMsGoal === goalAmount && lastMs !== null && lvl > lastMs) {
+      setTimeout(() => burst('smile', lvl === 100 ? 'Goal reached! 🎉' : `${lvl}% milestone reached! ${pack.milestone}`), 2300);
+    }
+    lastMs = lvl; lastMsPlan = activeId; lastMsGoal = goalAmount;
+  }
+  function openDayEditor(day) {
+    editingDay = day;
+    document.getElementById('dayAmountTitle').textContent = `Day ${day} savings ${pack.title}`;
+    const missedDay = isMissed(day);
+    document.getElementById('dayMood').innerHTML = completed.has(day) ? moodHtml('smile', pack.bigSaved) : missedDay ? moodHtml('cry', pack.bigMissed) : pack.title;
+    document.getElementById('dayAmountHelp').textContent = missedDay
+      ? 'You missed this day. That is okay! If you did save something, enter the amount to turn this shell into a smile.'
+      : 'Enter the amount you actually saved on this day. You can enter more or less than your default amount.';
+    document.getElementById('dayAmountInput').value = completed.has(day) ? String(dayAmounts[String(day)] || amountPerShell) : String(amountPerShell);
+    document.getElementById('dayAmountError').textContent = '';
+    document.getElementById('removeDayAmount').hidden = !completed.has(day);
+    document.getElementById('dayAmountDialog').showModal();
+    document.getElementById('dayAmountInput').focus();
+  }
+  document.getElementById('cancelDayAmount').addEventListener('click', () => document.getElementById('dayAmountDialog').close());
+  document.getElementById('saveDayAmount').addEventListener('click', () => {
+    const input = document.getElementById('dayAmountInput');
+    const amount = Number(input.value);
+    if (!Number.isInteger(amount) || amount < 1 || amount > MAX_AMOUNT) {
+      document.getElementById('dayAmountError').textContent = 'Enter a whole amount from Rs. 1 to Rs. 1,000,000.';
+      input.focus(); return;
+    }
+    completed.add(editingDay);
+    dayAmounts[String(editingDay)] = amount;
+    const day = editingDay;
+    document.getElementById('dayAmountDialog').close();
+    render(); persist({t:'set', day, amount});
+    toast.textContent = `Day ${day}: ${money(amount)} saved! 🌸`;
+    burst('smile', `Day ${day} saved! ${money(amount)}`);
+  });
+  document.getElementById('removeDayAmount').addEventListener('click', () => {
+    const day = editingDay;
+    completed.delete(day); delete dayAmounts[String(day)];
+    document.getElementById('dayAmountDialog').close();
+    render(); persist({t:'clear', day}); toast.textContent = `Day ${day} cleared.`;
+    burst('cry', `Day ${day} cleared`);
+  });
+  document.getElementById('dayAmountInput').addEventListener('keydown', event => {
+    if (event.key === 'Enter') document.getElementById('saveDayAmount').click();
+  });
+  let amountTouched = false, pendingChallenge = null;
+  function updateHelp() {
+    const g = Number(goalInput.value), d = Number(daysInput.value);
+    challengeHelp.textContent = g > 0 && d > 0
+      ? `About ${money(Math.ceil(g / d))} per day reaches your goal in ${d} ${d === 1 ? 'day' : 'days'}.`
+      : 'Choose 1 to 365 days. Set a start date so “today” and your streak follow the real date.';
+  }
+  function suggestAmount() {
+    const g = Number(goalInput.value), d = Number(daysInput.value);
+    if (!amountTouched && g > 0 && d > 0) shellAmountInput.value = String(Math.min(MAX_AMOUNT, Math.max(1, Math.ceil(g / d))));
+    updateHelp();
+  }
+  shellAmountInput.addEventListener('input', () => { amountTouched = true; });
+  goalInput.addEventListener('input', suggestAmount);
+  daysInput.addEventListener('input', suggestAmount);
+  [planNameInput, goalInput, daysInput, shellAmountInput, startInput].forEach(el => el.addEventListener('keydown', e => { if (e.key === 'Enter') saveChallengeBtn.click(); }));
+  function applyChallenge(c) {
+    goalAmount = c.goal; totalDays = c.days; amountPerShell = c.amount; startDate = c.start; planName = c.name;
+    for (const day of [...completed]) if (day > totalDays) { completed.delete(day); delete dayAmounts[String(day)]; }
+    render(); persist({t:'settings', name: planName, goal: goalAmount, days: totalDays, amount: amountPerShell, start: startDate});
+    toast.textContent = `Challenge saved: ${money(goalAmount)} in ${totalDays} ${totalDays === 1 ? 'day' : 'days'} 🌸`;
+  }
+  saveChallengeBtn.addEventListener('click', () => {
+    const c = {name: cleanName(planNameInput.value), goal: Number(goalInput.value), days: Number(daysInput.value), amount: Number(shellAmountInput.value), start: startInput.value};
+    if (!c.name) { toast.textContent = 'Please give your plan a name.'; planNameInput.focus(); return; }
+    if (!Number.isInteger(c.goal) || c.goal < 1 || c.goal > MAX_GOAL) { toast.textContent = 'Goal must be a whole amount from Rs. 1 to Rs. 10,000,000.'; goalInput.focus(); return; }
+    if (!Number.isInteger(c.days) || c.days < 1 || c.days > MAX_DAYS) { toast.textContent = 'Days must be a whole number from 1 to 365.'; daysInput.focus(); return; }
+    if (!Number.isInteger(c.amount) || c.amount < 1 || c.amount > MAX_AMOUNT) { toast.textContent = 'Default per day must be a whole amount from Rs. 1 to Rs. 1,000,000.'; shellAmountInput.focus(); return; }
+    if (c.start && !validDate(c.start)) { toast.textContent = 'Please choose a valid start date.'; startInput.focus(); return; }
+    const removed = [...completed].filter(day => day > c.days).sort((a,b)=>a-b);
+    if (removed.length) {
+      pendingChallenge = c;
+      document.getElementById('shrinkText').textContent = `You have saved ${removed.length === 1 ? 'day ' + removed[0] : removed.length + ' days'} beyond day ${c.days}. Shortening the challenge will remove ${removed.length === 1 ? 'it' : 'them'} and the amounts saved on ${removed.length === 1 ? 'it' : 'them'}.`;
+      document.getElementById('shrinkDialog').showModal();
+      return;
+    }
+    applyChallenge(c);
+  });
+  document.getElementById('cancelShrink').addEventListener('click', () => { pendingChallenge = null; document.getElementById('shrinkDialog').close(); });
+  document.getElementById('confirmShrink').addEventListener('click', () => {
+    document.getElementById('shrinkDialog').close();
+    if (pendingChallenge) applyChallenge(pendingChallenge);
+    pendingChallenge = null;
+  });
+
+  function firstOpenDay() { for (let i=1;i<=totalDays;i++) if (!completed.has(i)) return i; return -1; }
+  // The shell highlighted as "today": follows the real date when a start date is set, otherwise the next unsaved day.
+  function highlightDay() {
+    const t = currentDayNum();
+    if (t === null) return firstOpenDay();
+    return t >= 1 && t <= totalDays ? t : -1;
+  }
+  // What the main action button does right now.
+  function nextAction() {
+    if (completed.size >= totalDays) return {day: -1, label: '✓ All shells completed'};
+    const t = currentDayNum();
+    if (t === null || t > totalDays) return {day: firstOpenDay(), label: '＋ Mark next shell saved'};
+    if (t < 1) return {day: -1, label: `Starts ${fmtDate(startDate)}`};
+    if (completed.has(t)) return {day: -1, label: '✓ Today is saved'};
+    return {day: t, label: `＋ Mark today’s shell (Day ${t})`};
+  }
+  function streakInfo(set = completed, total = totalDays, start = startDate) {
+    const days = [...set].sort((a, b) => a - b);
+    let best = 0, run = 0, prev = -1;
+    for (const d of days) { run = d === prev + 1 ? run + 1 : 1; best = Math.max(best, run); prev = d; }
+    const t = dayNumFor(start);
+    let end;
+    if (t === null) end = days.length ? days[days.length - 1] : 0;   // no start date: run ending at your latest saved day
+    else if (t < 1) end = 0;
+    else if (t > total) end = total;
+    else end = set.has(t) ? t : t - 1;                         // today still open: yesterday's streak is not broken yet
+    let cur = 0;
+    for (let k = end; k >= 1 && set.has(k); k--) cur++;
+    return {cur, best, t};
+  }
+  // ---- Emoji packs (chosen in Settings, remembered on this device) ----
+  const PACKS = [
+    {id:'piggy',  name:'Piggy bank', desc:'Money-happy savers', saved:'🤑', bigSaved:'🤩', missed:'😢', bigMissed:'😭', empty:'🪙', hero:'🐷💰🐷', title:'🐷', milestone:'💰', sparks:['🪙','✨','💰'], confetti:['🪙','💰','🤑','✨','⭐']},
+    {id:'garden', name:'Garden', desc:'Grow it, don’t let it wilt', saved:'🌻', bigSaved:'🌸', missed:'🥀', bigMissed:'🥀', empty:'🌱', hero:'🌻🌱🌻', title:'🌱', milestone:'🌳', sparks:['🌸','✨','🦋'], confetti:['🌸','🌻','🌷','🦋','✨']},
+    {id:'cats',   name:'Cute cats', desc:'Happy & sad kitties', saved:'😸', bigSaved:'😻', missed:'😿', bigMissed:'😿', empty:'🐾', hero:'🐱🐾🐱', title:'🐾', milestone:'🐟', sparks:['🐾','✨','💗'], confetti:['🐾','🐟','💖','✨','🧶']},
+    {id:'party',  name:'Party', desc:'Celebrate every day', saved:'🥳', bigSaved:'🤩', missed:'🥹', bigMissed:'😭', empty:'🎈', hero:'🎉🎈🎉', title:'🎈', milestone:'🏅', sparks:['🎉','🎊','✨'], confetti:['🎉','🎊','🥳','✨','🎈']}
+  ];
+  const PACK_KEY = 'shellSavings_emojipack_v1';
+  let pack = PACKS[0];
+  try { pack = PACKS.find(p => p.id === localStorage.getItem(PACK_KEY)) || PACKS[0]; } catch (e) {}
+  function applyPack(id, save) {
+    pack = PACKS.find(p => p.id === id) || PACKS[0];
+    if (save) { try { localStorage.setItem(PACK_KEY, pack.id); } catch (e) {} }
+    document.getElementById('legend').textContent = `${pack.saved} saved · ${pack.label || pack.missed} missed`;
+    document.getElementById('heroEmoji').textContent = pack.hero;
+    document.querySelectorAll('.pack-opt').forEach(o => o.setAttribute('aria-checked', String(o.dataset.pack === pack.id)));
+    if (save && activeId) render();
+  }
+  PACKS.forEach(p => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'theme-opt pack-opt'; b.dataset.pack = p.id; b.setAttribute('role', 'radio');
+    b.innerHTML = `<span class="pk-row"><span>${p.saved}</span><span>${p.label || p.missed}</span><span>${p.empty}</span></span><span>${p.name}</span><small>${p.desc}</small>`;
+    b.addEventListener('click', () => applyPack(p.id, true));
+    document.getElementById('packGrid').appendChild(b);
+  });
+  applyPack(pack.id, false);
+
+  // ---- Animated mood emoji: 😄 when a day is saved, 😭 when a day is missed ----
+  function moodHtml(kind, face, compact) {
+    if (kind === 'smile') return `<span class="mood mood-smile"><span class="face">${face || pack.saved}</span>${compact ? '' : `<i class="spark s1">${pack.sparks[0]}</i><i class="spark s2">${pack.sparks[1]}</i><i class="spark s3">${pack.sparks[2]}</i>`}</span>`;
+    return `<span class="mood mood-cry"><span class="face">${face || pack.missed}</span><i class="tear t1">💧</i>${compact ? '' : '<i class="tear t2">💧</i>'}</span>`;
+  }
+  const isMissed = day => { const t = currentDayNum(); return t !== null && day >= 1 && day <= totalDays && day < t && !completed.has(day); };
+  function missedCount() { let n = 0; for (let d = 1; d <= totalDays; d++) if (isMissed(d)) n++; return n; }
+  function burst(kind, text) {
+    document.querySelectorAll('.mood-pop').forEach(el => el.remove());
+    const wrap = document.createElement('div');
+    wrap.className = 'mood-pop ' + kind; wrap.setAttribute('aria-hidden', 'true');
+    const glyphs = kind === 'smile' ? pack.confetti : ['💧', '💧', '🌧️'];
+    let bits = '';
+    for (let i = 0; i < 18; i++) bits += `<i class="fall" style="left:${(Math.random() * 96).toFixed(1)}%;animation-delay:${(Math.random() * .7).toFixed(2)}s;animation-duration:${(1.5 + Math.random() * 1.2).toFixed(2)}s;font-size:${(.9 + Math.random() * .9).toFixed(2)}rem">${glyphs[i % glyphs.length]}</i>`;
+    wrap.innerHTML = bits + `<div class="bubble">${moodHtml(kind, kind === 'smile' ? pack.bigSaved : pack.bigMissed)}<b>${esc(text)}</b></div>`;
+    document.body.appendChild(wrap);
+    setTimeout(() => wrap.remove(), 2700);
+  }
+  function renderMood() {
+    const card = document.getElementById('moodCard'), t = currentDayNum(), missed = missedCount();
+    let kind = null, title = '', text = '';
+    if (completed.size >= totalDays) { kind = 'smile'; title = 'Every shell is saved!'; text = 'Amazing, you completed the whole challenge. 🎉'; }
+    else if (t === null) { if (completed.size) { kind = 'smile'; title = `${plural(completed.size, 'shell')} saved so far`; text = 'Keep colouring them in! Set a start date in Settings to also track missed days.'; } }
+    else if (t >= 1 && t <= totalDays) {
+      if (completed.has(t)) { kind = 'smile'; title = 'Today’s shell is saved!'; text = missed ? `Nice work. ${plural(missed, 'day')} missed so far. You can still fill ${missed === 1 ? 'it' : 'them'} in.` : 'Nice work. No missed days so far!'; }
+      else { kind = 'cry'; title = 'Today’s shell is still empty'; text = `Save before the day ends to keep your streak.${missed ? ' ' + plural(missed, 'day') + ' missed so far.' : ''}`; }
+    } else if (t > totalDays) {
+      if (savedTotal() >= goalAmount) { kind = 'smile'; title = 'Challenge complete!'; text = 'You reached your savings goal. 🎉'; }
+      else { kind = 'cry'; title = 'Challenge ended'; text = missed ? `${plural(missed, 'day')} ${missed === 1 ? 'was' : 'were'} missed this time. Start a new plan any time.` : 'Start a new plan any time.'; }
+    }
+    card.hidden = !kind;
+    if (!kind) { card.dataset.k = ''; return; }
+    card.className = 'panel mood-card ' + kind;
+    if (card.dataset.k !== kind + pack.id) { document.getElementById('moodFace').innerHTML = moodHtml(kind, kind === 'smile' ? pack.bigSaved : pack.bigMissed); card.dataset.k = kind + pack.id; }
+    document.getElementById('moodTitle').textContent = title;
+    document.getElementById('moodText').textContent = text;
+  }
+  let renderedDay = null;
+  function renderToday() {
+    renderedDay = todayNum();
+    const chip = document.getElementById('todayInfo'), t = currentDayNum();
+    if (t === null || tab === 'plans') chip.hidden = true;
+    else {
+      chip.hidden = false;
+      chip.textContent = t < 1 ? `Starts in ${plural(1 - t, 'day')} · ${fmtDate(startDate)}`
+        : t <= totalDays ? `Today is Day ${t} of ${totalDays}`
+        : `Challenge ended ${plural(t - totalDays, 'day')} ago`;
+    }
+    const {cur, best} = streakInfo();
+    document.getElementById('streakNow').textContent = cur;
+    document.getElementById('streakNowLabel').textContent = 'day streak';
+    document.getElementById('streakBest').textContent = best;
+    const todaySaved = t !== null && t >= 1 && t <= totalDays && completed.has(t);
+    document.getElementById('streakMsg').textContent =
+      t === null ? 'Set a start date in “Your challenge” to track your streak by the real date.'
+      : t < 1 ? `Your challenge starts on ${fmtDate(startDate)}. 🌱`
+      : t > totalDays ? (cur > 0 ? `You finished with a ${cur}-day streak! 🎉` : 'This challenge has ended. Start a new one any time. 🌸')
+      : todaySaved ? 'Today is saved. Come back tomorrow to keep it going! 🌸'
+      : cur > 0 ? `Save today’s shell to keep your ${cur}-day streak alive! 🔥`
+      : 'Save today’s shell to start a new streak. 🌱';
+    const act = nextAction(), btn = document.getElementById('todayBtn');
+    btn.textContent = act.label; btn.disabled = act.day < 0;
+    renderMood();
+  }
+
+  authForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const email = emailInput.value.trim(); const password = passwordInput.value;
+    showStatus('Signing you in…');
+    const { data, error } = await supabase.auth.signInWithPassword({email, password});
+    if (error) { showStatus(error.message, true); return; }
+    try { showApp(data.user); await loadCloudProgress(data.user); }
+    catch (e) { showStatus('Signed in, but could not load cloud savings: ' + e.message, true); }
+  });
+  document.getElementById('signUpBtn').addEventListener('click', async () => {
+    const email = emailInput.value.trim(); const password = passwordInput.value;
+    const nameWrap = document.getElementById('nameWrap'), nameField = document.getElementById('authName');
+    if (nameWrap.hidden) { nameWrap.hidden = false; nameField.focus(); showStatus('Add your name, then tap Create account again. 😊'); return; }
+    const newName = cleanName(nameField.value);
+    if (!newName) { showStatus('Please enter your name.', true); nameField.focus(); return; }
+    if (!email || !password) { showStatus('Enter your email and a password first.', true); return; }
+    if (password.length < 6) { showStatus('Please use a password with at least 6 characters.', true); return; }
+    showStatus('Creating your account…');
+    const { data, error } = await supabase.auth.signUp({email, password, options:{emailRedirectTo:APP_URL, data:{full_name:newName}}});
+    if (error) { showStatus(error.message, true); return; }
+    if (data.session && data.user) {
+      try { showApp(data.user); await loadCloudProgress(data.user); }
+      catch (e) { showStatus('Account created, but cloud loading failed: ' + e.message, true); }
+    } else {
+      showStatus('Account created! Check your email for the confirmation link, then come back and sign in.');
+    }
+  });
+  document.getElementById('googleBtn').addEventListener('click', async () => {
+    showStatus('Opening Google sign-in…');
+    const { error } = await supabase.auth.signInWithOAuth({provider:'google', options:{redirectTo:APP_URL}});
+    if (error) showStatus(error.message, true);
+  });
+  document.getElementById('resetPasswordBtn').addEventListener('click', async () => {
+    const email = emailInput.value.trim();
+    if (!email) { showStatus('Enter your email address first, then tap Forgot password.', true); return; }
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {redirectTo:APP_URL});
+    showStatus(error ? error.message : 'If that email has an account, a password-reset link will arrive shortly.', !!error);
+  });
+  document.getElementById('signOutBtn').addEventListener('click', async () => {
+    if (pendingOps.length) {
+      toast.textContent = 'Saving your latest changes before signing out…';
+      try { saveQueue = saveQueue.then(syncNow); await saveQueue; } catch (e) { setSync('error', e.message); }
+      if (pendingOps.length && !confirm('Some changes are NOT saved to the cloud yet' + (syncError ? ' (' + syncError + ')' : '') + '. If you sign out now they will be lost. Sign out anyway?')) return;
+    }
+    const { error } = await supabase.auth.signOut();
+    if (error) { toast.textContent = 'Could not sign out: ' + error.message; return; }
+    pendingOps = []; plans = []; activeId = null; completed = new Set(); pwForm.reset(); recoveryMode = false; resetProfileState(); showLogin('You have signed out. See you next time! 🐚');
+  });
+  document.getElementById('todayBtn').addEventListener('click', () => {
+    const day = nextAction().day; if (day < 0) return;
+    completed.add(day); dayAmounts[String(day)] = amountPerShell; render(); persist({t:'set', day, amount: amountPerShell});
+    toast.textContent = `Day ${day}: ${money(amountPerShell)} saved. One more little win! 🌸`;
+    burst('smile', `Day ${day} saved! ${money(amountPerShell)}`);
+    grid.children[day-1]?.scrollIntoView({block:'nearest',behavior:'smooth'});
+  });
+  // ==XL-START== Excel (.xlsx) export, built in the browser (no library, works offline)
+  const XLSX_MIME = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+  const XL = (() => {
+    const enc = new TextEncoder();
+    const crcTable = (() => { const t = new Uint32Array(256); for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return t; })();
+    const crc32 = b => { let c = 0xFFFFFFFF; for (let i = 0; i < b.length; i++) c = crcTable[(c ^ b[i]) & 255] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; };
+    const u16 = n => [n & 255, (n >>> 8) & 255];
+    const u32 = n => [n & 255, (n >>> 8) & 255, (n >>> 16) & 255, (n >>> 24) & 255];
+    function zip(files) {
+      const parts = [], central = []; let offset = 0;
+      for (const f of files) {
+        const name = enc.encode(f.name), data = enc.encode(f.data), crc = crc32(data);
+        const local = new Uint8Array([0x50,0x4b,3,4, ...u16(20), ...u16(0x0800), ...u16(0), ...u16(0), ...u16(0x21), ...u32(crc), ...u32(data.length), ...u32(data.length), ...u16(name.length), ...u16(0)]);
+        parts.push(local, name, data);
+        central.push(new Uint8Array([0x50,0x4b,1,2, ...u16(20), ...u16(20), ...u16(0x0800), ...u16(0), ...u16(0), ...u16(0x21), ...u32(crc), ...u32(data.length), ...u32(data.length), ...u16(name.length), ...u16(0), ...u16(0), ...u16(0), ...u16(0), ...u32(0), ...u32(offset)]), name);
+        offset += local.length + name.length + data.length;
+      }
+      const cdSize = central.reduce((s, p) => s + p.length, 0);
+      const end = new Uint8Array([0x50,0x4b,5,6, ...u16(0), ...u16(0), ...u16(files.length), ...u16(files.length), ...u32(cdSize), ...u32(offset), ...u16(0)]);
+      return new Blob([...parts, ...central, end], {type: XLSX_MIME});
+    }
+    const colName = i => { let s = '', n = i + 1; while (n > 0) { const m = (n - 1) % 26; s = String.fromCharCode(65 + m) + s; n = Math.floor((n - 1) / 26); } return s; };
+    const x = s => String(s).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, '').replace(/[<>&"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c]));
+    // A cell is {v, s, f}: v = text or number, s = style id (see STYLES), f = formula (v is then its cached result).
+    function sheetXml(sh, first) {
+      let data = '';
+      sh.rows.forEach((row, r) => {
+        let cells = '';
+        (row || []).forEach((c, i) => {
+          if (c === null || c === undefined) return;
+          if (typeof c !== 'object') c = {v: c};
+          const ref = colName(i) + (r + 1), st = c.s ? ` s="${c.s}"` : '';
+          if (c.f) cells += `<c r="${ref}"${st}><f>${x(c.f)}</f><v>${c.v}</v></c>`;
+          else if (typeof c.v === 'number' && isFinite(c.v)) cells += `<c r="${ref}"${st}><v>${c.v}</v></c>`;
+          else if (c.v === '') cells += `<c r="${ref}"${st}/>`;
+          else cells += `<c r="${ref}"${st} t="inlineStr"><is><t xml:space="preserve">${x(c.v)}</t></is></c>`;
+        });
+        data += `<row r="${r + 1}"${row && row.h ? ` ht="${row.h}" customHeight="1"` : ''}>${cells}</row>`;
+      });
+      const cols = (sh.widths || []).map((w, i) => `<col min="${i + 1}" max="${i + 1}" width="${w}" customWidth="1"/>`).join('');
+      const merges = (sh.merges || []).length ? `<mergeCells count="${sh.merges.length}">${sh.merges.map(m => `<mergeCell ref="${m}"/>`).join('')}</mergeCells>` : '';
+      return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetViews><sheetView workbookViewId="0" showGridLines="0"${first ? ' tabSelected="1"' : ''}/></sheetViews><sheetFormatPr defaultRowHeight="15"/>${cols ? `<cols>${cols}</cols>` : ''}<sheetData>${data}</sheetData>${merges}<pageMargins left="0.7" right="0.7" top="0.75" bottom="0.75" header="0.3" footer="0.3"/></worksheet>`;
+    }
+    const border = '<border><left style="thin"><color rgb="FFE3D6E8"/></left><right style="thin"><color rgb="FFE3D6E8"/></right><top style="thin"><color rgb="FFE3D6E8"/></top><bottom style="thin"><color rgb="FFE3D6E8"/></bottom><diagonal/></border>';
+    const solid = rgb => `<fill><patternFill patternType="solid"><fgColor rgb="${rgb}"/><bgColor indexed="64"/></patternFill></fill>`;
+    const xf = (num, font, fill, bord, align) => `<xf numFmtId="${num}" fontId="${font}" fillId="${fill}" borderId="${bord}" xfId="0" applyNumberFormat="1" applyFont="1" applyFill="1" applyBorder="1"${align ? ' applyAlignment="1"><alignment ' + align + '/></xf>' : '/>'}`;
+    // style ids: 1 header · 2 title · 3 text · 4 money · 5 date · 6 saved · 7 missed · 8 pending · 9 whole number · 10 money total · 11 bold label · 12 note · 13 percent
+    const STYLES = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">`
+      + `<numFmts count="2"><numFmt numFmtId="164" formatCode="&quot;Rs. &quot;#,##0"/><numFmt numFmtId="165" formatCode="dd\\ mmm\\ yyyy"/></numFmts>`
+      + `<fonts count="5"><font><sz val="10"/><name val="Arial"/></font><font><b/><sz val="10"/><color rgb="FFFFFFFF"/><name val="Arial"/></font><font><b/><sz val="16"/><color rgb="FF5B3F6E"/><name val="Arial"/></font><font><b/><sz val="10"/><name val="Arial"/></font><font><i/><sz val="9"/><color rgb="FF7F7385"/><name val="Arial"/></font></fonts>`
+      + `<fills count="6"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill>${solid('FF7B5C91')}${solid('FFE3F6EA')}${solid('FFFFE4EA')}${solid('FFF4EFFF')}</fills>`
+      + `<borders count="2"><border><left/><right/><top/><bottom/><diagonal/></border>${border}</borders>`
+      + `<cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs>`
+      + `<cellXfs count="14">`
+      + xf(0,0,0,0) + xf(0,1,2,1,'horizontal="center" vertical="center" wrapText="1"') + xf(0,2,0,0) + xf(0,0,0,1,'horizontal="left"')
+      + xf(164,0,0,1) + xf(165,0,0,1,'horizontal="left"') + xf(0,3,3,1,'horizontal="center"') + xf(0,3,4,1,'horizontal="center"')
+      + xf(0,0,0,1,'horizontal="center"') + xf(0,0,0,1,'horizontal="center"') + xf(164,3,5,1) + xf(0,3,5,1,'horizontal="left"') + xf(0,4,0,0) + xf(9,0,0,1)
+      + `</cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>`;
+    function build(sheets) {
+      const files = [
+        {name: '[Content_Types].xml', data: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/>${sheets.map((s, i) => `<Override PartName="/xl/worksheets/sheet${i + 1}.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>`).join('')}</Types>`},
+        {name: '_rels/.rels', data: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>`},
+        {name: 'xl/workbook.xml', data: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><bookViews><workbookView activeTab="0"/></bookViews><sheets>${sheets.map((s, i) => `<sheet name="${x(s.name)}" sheetId="${i + 1}" r:id="rId${i + 1}"/>`).join('')}</sheets><calcPr calcId="191029" fullCalcOnLoad="1"/></workbook>`},
+        {name: 'xl/_rels/workbook.xml.rels', data: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${sheets.map((s, i) => `<Relationship Id="rId${i + 1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet${i + 1}.xml"/>`).join('')}<Relationship Id="rId${sheets.length + 1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>`},
+        {name: 'xl/styles.xml', data: STYLES},
+        ...sheets.map((s, i) => ({name: `xl/worksheets/sheet${i + 1}.xml`, data: sheetXml(s, i === 0)}))
+      ];
+      return zip(files);
+    }
+    return {build};
+  })();
+  const excelSerial = str => dateNum(str) + 25569;   // days since 1900 as Excel counts them
+  function planStats(st) {
+    const t = dayNumFor(st.start), lim = t === null ? 0 : Math.max(0, Math.min(st.total, t - 1));
+    let missed = 0; for (let d = 1; d <= lim; d++) if (!st.days.has(d)) missed++;
+    const total = [...st.days].reduce((s, d) => s + (Number(st.amounts[String(d)]) || st.amount), 0);
+    const {cur, best} = streakInfo(st.days, st.total, st.start);
+    return {t, lim, missed, total, saved: st.days.size, cur, best};
+  }
+  function planSheet(st) {
+    const n = st.total, S = planStats(st), first = 17, last = first + n - 1, lbl = v => ({v, s: 11});
+    const R = [];
+    R[0] = [{v: st.name, s: 2}];
+    R[1] = [{v: 'Exported on ' + new Date().toLocaleString(), s: 12}];
+    R[2] = [];
+    R[3] = [lbl('Savings goal'), {v: st.goal, s: 4}];
+    R[4] = [lbl('Number of days'), {v: n, s: 9}];
+    R[5] = [lbl('Default per day'), {v: st.amount, s: 4}];
+    R[6] = [lbl('Start date'), st.start ? {v: excelSerial(st.start), s: 5} : {v: 'Not set', s: 3}];
+    R[7] = [lbl('Saved so far'), {f: `SUM(D${first}:D${last})`, v: S.total, s: 4}];
+    R[8] = [lbl('Left to save'), {f: 'MAX(0,B4-B8)', v: Math.max(0, st.goal - S.total), s: 4}];
+    R[9] = [lbl('Progress'), {f: 'MIN(1,B8/B4)', v: Math.min(1, S.total / st.goal), s: 13}];
+    R[10] = [lbl('Days saved'), {f: `COUNTIF(C${first}:C${last},"Saved")`, v: S.saved, s: 9}];
+    R[11] = [lbl('Days missed'), {f: `COUNTIF(C${first}:C${last},"Missed")`, v: S.missed, s: 9}];
+    R[12] = [lbl('Current streak'), {v: S.cur, s: 9}];
+    R[13] = [lbl('Best streak'), {v: S.best, s: 9}];
+    R[14] = [];
+    R[15] = ['Day', 'Date', 'Status', 'Amount saved (Rs.)', 'Running total (Rs.)', '% of goal'].map(v => ({v, s: 1}));
+    R[15].h = 30;
+    let run = 0;
+    for (let d = 1; d <= n; d++) {
+      const row = first + d - 1, done = st.days.has(d), amt = done ? (Number(st.amounts[String(d)]) || st.amount) : 0;
+      const missed = !done && d <= S.lim;
+      run += amt;
+      R[row - 1] = [
+        {v: d, s: 9},
+        st.start ? {v: excelSerial(st.start) + d - 1, s: 5} : {v: '', s: 3},
+        {v: done ? 'Saved' : missed ? 'Missed' : 'Pending', s: done ? 6 : missed ? 7 : 8},
+        done ? {v: amt, s: 4} : {v: '', s: 4},
+        {f: `SUM($D$${first}:D${row})`, v: run, s: 4},
+        {f: `E${row}/$B$4`, v: run / st.goal, s: 13}
+      ];
+    }
+    R[last] = [{v: 'Total', s: 11}, {v: '', s: 11}, {v: '', s: 11}, {f: `SUM(D${first}:D${last})`, v: S.total, s: 10}, {v: '', s: 11}, {v: '', s: 11}];
+    return {rows: R, widths: [18, 16, 12, 22, 22, 12], merges: ['A1:F1']};
+  }
+  function overviewSheet(list) {
+    const R = [[{v: 'Shell Savings — all plans', s: 2}], [{v: 'Exported on ' + new Date().toLocaleString(), s: 12}], []];
+    R[3] = ['Plan', 'Goal (Rs.)', 'Days', 'Start date', 'Saved so far (Rs.)', 'Progress', 'Days saved', 'Days missed', 'Current streak'].map(v => ({v, s: 1}));
+    R[3].h = 30;
+    for (const st of list) {
+      const S = planStats(st);
+      R.push([{v: st.name, s: 3}, {v: st.goal, s: 4}, {v: st.total, s: 9}, st.start ? {v: excelSerial(st.start), s: 5} : {v: 'Not set', s: 3},
+              {v: S.total, s: 4}, {v: Math.min(1, S.total / st.goal), s: 13}, {v: S.saved, s: 9}, {v: S.missed, s: 9}, {v: S.cur, s: 9}]);
+    }
+    return {rows: R, widths: [28, 16, 10, 16, 22, 12, 12, 13, 14], merges: ['A1:I1']};
+  }
+  const sheetName = (raw, used) => {
+    let base = String(raw).replace(/[\[\]:*?\/\\]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 31) || 'Plan', name = base, i = 2;
+    while (used.has(name.toLowerCase())) { const suffix = ` (${i++})`; name = base.slice(0, 31 - suffix.length) + suffix; }
+    used.add(name.toLowerCase()); return name;
+  };
+  function buildWorkbook(list, withOverview) {
+    const used = new Set(withOverview ? ['overview'] : []), sheets = [];
+    if (withOverview) sheets.push({name: 'Overview', ...overviewSheet(list)});
+    for (const st of list) sheets.push({name: sheetName(st.name, used), ...planSheet(st)});
+    return XL.build(sheets);
+  }
+  // ==XL-END==
+  // Lets the person choose where to save: a "Save as" window on desktop browsers (Chrome/Edge),
+  // the phone's share sheet ("Save to Files", Drive, WhatsApp...) on mobile, or a normal download as the last fallback.
+  async function saveFile(blob, filename) {
+    const ext = filename.slice(filename.lastIndexOf('.')), type = blob.type || 'application/octet-stream';
+    if (window.showSaveFilePicker) {
+      try {
+        const handle = await window.showSaveFilePicker({suggestedName: filename, types: [{description: ext === '.xlsx' ? 'Excel workbook' : 'JSON file', accept: {[type]: [ext]}}]});
+        const w = await handle.createWritable(); await w.write(blob); await w.close();
+        return 'saved';
+      } catch (e) { if (e && e.name === 'AbortError') return 'cancelled'; /* otherwise fall through to the other methods */ }
+    }
+    try {
+      const file = new File([blob], filename, {type});
+      if (navigator.canShare && navigator.canShare({files: [file]}) && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        await navigator.share({files: [file], title: filename});
+        return 'shared';
+      }
+    } catch (e) { if (e && e.name === 'AbortError') return 'cancelled'; }
+    const url = URL.createObjectURL(blob), a = document.createElement('a');
+    a.href = url; a.download = filename; document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1500);
+    return 'downloaded';
+  }
+  const savedMsg = (how, what) => how === 'cancelled' ? 'Export cancelled. Nothing was saved.'
+    : how === 'downloaded' ? `${what} downloaded to your Downloads folder.` : `${what} saved ✅`;
+  const slug = s => String(s).replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '').toLowerCase() || 'plan';
+  async function exportExcel(all) {
+    try {
+      stashActive();
+      const list = all ? plans.slice() : [planById(activeId)].filter(Boolean);
+      if (!list.length) { toast.textContent = 'Nothing to export yet.'; return; }
+      const blob = buildWorkbook(list, all);
+      const how = await saveFile(blob, all ? 'shell-savings-all-plans.xlsx' : `shell-savings-${slug(planName)}.xlsx`);
+      toast.textContent = savedMsg(how, 'Excel file') + (how === 'cancelled' ? '' : ' 📊');
+    } catch (e) { toast.textContent = 'Could not create the Excel file: ' + e.message; }
+  }
+  document.getElementById('exportXlsxBtn').addEventListener('click', () => exportExcel(false));
+  document.getElementById('exportAllXlsxBtn').addEventListener('click', () => exportExcel(true));
+  document.getElementById('exportBtn').addEventListener('click', async () => {
+    const payload = {title:planName,planName:planName,goal:goalAmount,totalDays:totalDays,defaultAmountPerDay:amountPerShell,completedDays:[...completed].sort((a,b)=>a-b),dayAmounts:dayAmounts,savedAmount:savedTotal(),exportedAt:new Date().toISOString()};
+    const how = await saveFile(new Blob([JSON.stringify(payload,null,2)], {type:'application/json'}), `shell-savings-${slug(planName)}.json`);
+    toast.textContent = savedMsg(how, 'Backup') + (how === 'cancelled' ? '' : ' 💾');
+  });
+
+  // ---- Profile: name, photo, greeting ----
+  const PROFILE_AVATARS = ['🐷', '🌻', '🐱', '🥳', '🦊', '🐼', '🦄', '🌈'];
+  const GREET_KEY = 'shellSavings_greet_v1';
+  let profile = {name: '', avatar: '', seen: null}, profileReady = false, profileErr = '', profileLoaded = false;
+  const safeAvatar = v => typeof v === 'string' && (/^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+\/=]+$/.test(v) || /^https:\/\/[^\s"'<>]+$/.test(v));
+  const initialsOf = n => { const w = String(n || '').trim().split(/\s+/).filter(Boolean); return ((w[0] ? w[0][0] : '') + (w[1] ? w[1][0] : '')).toUpperCase() || '🙂'; };
+  function avatarHtml(av, name, big) {
+    const cls = 'avatar' + (big ? ' big' : '');
+    if (typeof av === 'string' && av.startsWith('emoji:')) return `<span class="${cls} emoji" aria-hidden="true">${esc(av.slice(6, 12))}</span>`;
+    if (safeAvatar(av)) return `<img class="${cls}" src="${esc(av)}" alt="" referrerpolicy="no-referrer">`;
+    return `<span class="${cls}" aria-hidden="true">${esc(initialsOf(name))}</span>`;
+  }
+  function showQuickProfile(user) {   // shown instantly at sign-in, refined once the profile loads
+    const meta = user.user_metadata || {};
+    const name = cleanName(meta.full_name || meta.name || '');
+    document.getElementById('accountName').textContent = name ? `Hi, ${name}` : 'Hello 👋';
+    document.getElementById('barAvatar').innerHTML = avatarHtml(meta.avatar_url || meta.picture || '', name);
+  }
+  function renderProfile() {
+    const name = profile.name, email = currentUser ? (currentUser.email || 'Google account') : '';
+    document.getElementById('accountName').textContent = name ? `Hi, ${name}` : 'Hello 👋';
+    document.getElementById('accountEmail').textContent = email;
+    document.getElementById('barAvatar').innerHTML = avatarHtml(profile.avatar, name);
+    document.getElementById('profileAvatar').innerHTML = avatarHtml(profile.avatar, name, true);
+    document.getElementById('profileNameShown').textContent = name || 'No name yet';
+    document.getElementById('profileEmail').textContent = email;
+    document.getElementById('profileSince').textContent = currentUser && currentUser.created_at ? 'Member since ' + new Date(currentUser.created_at).toLocaleDateString(undefined, {day: 'numeric', month: 'short', year: 'numeric'}) : '';
+    const input = document.getElementById('profileName'); if (document.activeElement !== input) input.value = name;
+    document.getElementById('emojiAvatars').querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(profile.avatar === 'emoji:' + b.dataset.e)));
+    document.getElementById('greetToggle').checked = greetingsOn();
+    renderProfileExtras();
+  }
+  function renderProfileExtras() {
+    if (!profileLoaded && !plans.length) return;
+    const list = plans.map(p => p.id === activeId ? {...p, days: completed, amounts: dayAmounts, goal: goalAmount, amount: amountPerShell, total: totalDays, start: startDate} : p);
+    const totalSaved = list.reduce((s, p) => s + planSaved(p), 0), shells = list.reduce((s, p) => s + p.days.size, 0);
+    const best = list.reduce((m, p) => Math.max(m, streakInfo(p.days, p.total, p.start).best), 0);
+    const goalHit = list.some(p => planSaved(p) >= p.goal), half = list.some(p => planSaved(p) >= p.goal / 2);
+    document.getElementById('profileStats').innerHTML =
+      [['Total saved', money(totalSaved)], ['Shells filled', shells], ['Best streak', plural(best, 'day')], ['Plans', list.length]]
+        .map(([k, v]) => `<div class="pstat"><small>${k}</small><strong>${esc(v)}</strong></div>`).join('');
+    const B = [['🐣', 'First shell', shells >= 1], ['🔥', '3-day streak', best >= 3], ['⚡', '7-day streak', best >= 7], ['🏆', '30-day streak', best >= 30],
+               ['💰', 'Rs. 1,000 saved', totalSaved >= 1000], ['💎', 'Rs. 10,000 saved', totalSaved >= 10000], ['🎯', 'Halfway there', half], ['🎉', 'Goal reached', goalHit], ['🗂️', 'Plan master (3)', list.length >= 3]];
+    document.getElementById('badges').innerHTML = B.map(([e, n, on]) => `<div class="badge ${on ? 'on' : 'off'}" title="${on ? 'Unlocked' : 'Locked'}"><span>${e}</span><small>${n}</small></div>`).join('');
+  }
+  async function saveProfile(patch) {
+    const next = {...profile, ...patch};
+    if (profileReady) {
+      const row = {user_id: currentUser.id, display_name: next.name || null, avatar_url: next.avatar === '' ? '' : (next.avatar || null), updated_at: new Date().toISOString()};
+      const {data, error} = await supabase.from('profiles').upsert(row, {onConflict: 'user_id'}).select('user_id');
+      if (error) throw error;
+      if (!data || !data.length) throw new Error('The server did not confirm the save.');
+    } else if ('avatar' in patch) {
+      throw new Error('Profile photos need a one-time database setup. Run profile_migration.sql in Supabase, then reload.');
+    }
+    if ('name' in patch) { try { await supabase.auth.updateUser({data: {full_name: next.name}}); } catch (e) {} }   // backup copy of the name
+    profile = next; renderProfile();
+  }
+  function setProfileStatus(msg, bad) { const el = document.getElementById('profileStatus'); el.textContent = msg || ''; el.classList.toggle('bad', !!bad); }
+  const greetingsOn = () => { try { return localStorage.getItem(GREET_KEY) !== 'off'; } catch (e) { return true; } };
+  document.getElementById('greetToggle').addEventListener('change', e => { try { localStorage.setItem(GREET_KEY, e.target.checked ? 'on' : 'off'); } catch (err) {} });
+
+  document.getElementById('saveNameBtn').addEventListener('click', async () => {
+    const name = cleanName(document.getElementById('profileName').value);
+    if (!name) return setProfileStatus('Please enter a name.', true);
+    const btn = document.getElementById('saveNameBtn'); btn.disabled = true; setProfileStatus('Saving…');
+    try { await saveProfile({name}); setProfileStatus(`Nice to meet you, ${name}! 😊`); }
+    catch (e) { setProfileStatus(e.message || 'Could not save your name.', true); }
+    finally { btn.disabled = false; }
+  });
+  PROFILE_AVATARS.forEach(e => {
+    const b = document.createElement('button'); b.type = 'button'; b.dataset.e = e; b.textContent = e; b.setAttribute('aria-label', 'Use ' + e + ' as avatar'); b.setAttribute('aria-pressed', 'false');
+    b.addEventListener('click', async () => { try { await saveProfile({avatar: 'emoji:' + e}); setProfileStatus('Avatar updated ' + e); } catch (err) { setProfileStatus(err.message, true); } });
+    document.getElementById('emojiAvatars').appendChild(b);
+  });
+  function fileToAvatar(file) {   // centre-crop to a square and shrink to 192px so it stays tiny (about 10 KB)
+    return new Promise((resolve, reject) => {
+      if (!/^image\//.test(file.type)) return reject(new Error('Please choose an image file.'));
+      const url = URL.createObjectURL(file), img = new Image();
+      img.onload = () => {
+        const S = 192, c = document.createElement('canvas'); c.width = c.height = S;
+        const ctx = c.getContext('2d'), m = Math.min(img.width, img.height);
+        ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, S, S);
+        ctx.drawImage(img, (img.width - m) / 2, (img.height - m) / 2, m, m, 0, 0, S, S);
+        URL.revokeObjectURL(url); resolve(c.toDataURL('image/jpeg', .85));
+      };
+      img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('Could not read that image. Try a JPG or PNG.')); };
+      img.src = url;
+    });
+  }
+  document.getElementById('photoBtn').addEventListener('click', () => document.getElementById('photoInput').click());
+  document.getElementById('photoInput').addEventListener('change', async e => {
+    const file = e.target.files && e.target.files[0]; e.target.value = ''; if (!file) return;
+    setProfileStatus('Updating your photo…');
+    try { await saveProfile({avatar: await fileToAvatar(file)}); setProfileStatus('Photo updated 📸'); }
+    catch (err) { setProfileStatus(err.message || 'Could not update your photo.', true); }
+  });
+  document.getElementById('photoRemoveBtn').addEventListener('click', async () => {
+    try { await saveProfile({avatar: ''}); setProfileStatus('Photo removed.'); } catch (err) { setProfileStatus(err.message, true); }
+  });
+
+  // Asks for a name (required) when the account has none yet.
+  const nameDialog = document.getElementById('nameDialog');
+  nameDialog.addEventListener('cancel', e => e.preventDefault());   // the name is required, so Esc cannot skip it
+  function askName() {
+    return new Promise(resolve => {
+      const input = document.getElementById('nameDialogInput'), err = document.getElementById('nameDialogError'), btn = document.getElementById('nameDialogSave');
+      input.value = ''; err.textContent = '';
+      const submit = async () => {
+        const name = cleanName(input.value);
+        if (!name) { err.textContent = 'Please enter your name.'; return; }
+        btn.disabled = true; err.textContent = '';
+        try { await saveProfile({name}); nameDialog.close(); btn.removeEventListener('click', submit); resolve(name); }
+        catch (e) { err.textContent = e.message || 'Could not save your name.'; }
+        finally { btn.disabled = false; }
+      };
+      btn.addEventListener('click', submit);
+      input.onkeydown = ev => { if (ev.key === 'Enter') { ev.preventDefault(); submit(); } };
+      nameDialog.showModal(); setTimeout(() => input.focus(), 50);
+    });
+  }
+
+  // Greeting: a first-time welcome, a time-of-day hello, or a cheeky "long time no see" if you have been away.
+  const pick = a => a[Math.floor(Math.random() * a.length)];
+  function buildGreeting(name, prevSeen, firstTime) {
+    const n = name || 'friend', hr = new Date().getHours();
+    const tod = hr < 5 ? 'Still up' : hr < 12 ? 'Good morning' : hr < 17 ? 'Good afternoon' : hr < 21 ? 'Good evening' : 'Good night';
+    const todE = hr < 5 ? '🌙' : hr < 12 ? '☀️' : hr < 17 ? '🌤️' : hr < 21 ? '🌆' : '🌙';
+    if (firstTime) return {e: '🎉', t: `Welcome, ${n}!`, p: 'Your savings journey starts today. Tap a shell to save your first one.'};
+    const days = prevSeen ? (Date.now() - new Date(prevSeen).getTime()) / 86400000 : 0, d = Math.max(1, Math.round(days));
+    if (days >= 30) return pick([
+      {e: '😱', t: `Long time no see, ${n}!`, p: `${d} days! Your shells sent out a search party. Let’s get saving again.`},
+      {e: '🕵️', t: `Look who finally remembered us, ${n}!`, p: `Your shells have waited ${d} days. No judgement… okay, a tiny bit of judgement. 😄`}]);
+    if (days >= 7) return pick([
+      {e: '😄', t: `Long time no see, ${n}!`, p: 'Your shells were getting lonely. Let’s fill a few today.'},
+      {e: '👀', t: `${n}?! Is that really you?`, p: `It’s been ${d} days. Your piggy bank was starting to worry.`}]);
+    if (days >= 2) return {e: '🥹', t: `Hey ${n}, we missed you!`, p: `It’s been ${d} days. A little saving today keeps the habit alive.`};
+    let p = 'Ready to save a little today?';
+    const t = currentDayNum();
+    if (t !== null && t >= 1 && t <= totalDays) p = completed.has(t) ? 'Today’s shell is already saved. Nice work!' : 'Today’s shell is waiting for you.';
+    return {e: todE, t: `${tod}, ${n}!`, p};
+  }
+  let greetTimer = null;
+  function showGreeting(prevSeen, firstTime) {
+    const uid = currentUser.id, key = 'shell_greeted_' + uid;
+    try { if (sessionStorage.getItem(key) || !greetingsOn()) return; sessionStorage.setItem(key, '1'); } catch (e) {}
+    const g = buildGreeting(profile.name, prevSeen, firstTime), card = document.getElementById('greetCard');
+    document.getElementById('greetEmoji').textContent = g.e;
+    document.getElementById('greetTitle').textContent = g.t;
+    document.getElementById('greetText').textContent = g.p;
+    card.classList.remove('hide'); card.hidden = false;
+    clearTimeout(greetTimer); greetTimer = setTimeout(hideGreeting, 10000);
+  }
+  function hideGreeting() { const c = document.getElementById('greetCard'); c.classList.add('hide'); setTimeout(() => { c.hidden = true; }, 500); }
+  document.getElementById('greetClose').addEventListener('click', hideGreeting);
+
+  function resetProfileState() {
+    try { if (currentUser) sessionStorage.removeItem('shell_greeted_' + currentUser.id); } catch (e) {}
+    profile = {name: '', avatar: '', seen: null}; profileReady = false; profileLoaded = false;
+    document.getElementById('greetCard').hidden = true; setProfileStatus('');
+  }
+  async function initProfile(user) {
+    let row = null; profileReady = false; profileErr = '';
+    try {
+      const {data, error} = await supabase.from('profiles').select('display_name, avatar_url, last_seen_at').eq('user_id', user.id).maybeSingle();
+      if (error) throw error; row = data; profileReady = true;
+    } catch (e) { profileErr = e.message || String(e); }
+    const meta = user.user_metadata || {};
+    profile = {
+      name: cleanName((row && row.display_name) || meta.full_name || meta.name || ''),
+      avatar: row && row.avatar_url !== null && row.avatar_url !== undefined ? row.avatar_url : (meta.avatar_url || meta.picture || ''),
+      seen: row ? row.last_seen_at : null
+    };
+    profileLoaded = true;
+    const prevSeen = profile.seen, brandNew = !row && user.created_at && (Date.now() - new Date(user.created_at).getTime()) < 2 * 86400000;
+    renderProfile();
+    if (!profile.name) await askName();
+    if (profileReady) {   // create the profile on first visit, and remember when you were last here
+      try {
+        const now = new Date().toISOString();
+        if (!row) await supabase.from('profiles').upsert({user_id: user.id, display_name: profile.name || null, avatar_url: profile.avatar || null, last_seen_at: now}, {onConflict: 'user_id'});
+        else await supabase.from('profiles').update({last_seen_at: now}).eq('user_id', user.id);
+      } catch (e) { /* not critical */ }
+    } else if (profileErr) {
+      setProfileStatus('Profile photos are not set up yet. Run profile_migration.sql in Supabase.', true);
+    }
+    showGreeting(prevSeen, brandNew);
+  }
+
+  // ---- Cloud sync check ----
+  const APP_VERSION = 'v18 · reads and writes table "savings_plans"';
+  document.getElementById('checkSyncBtn').addEventListener('click', async () => {
+    const out = document.getElementById('syncCheckOut'); out.textContent = 'Trying to save, then checking…';
+    let saveErr = '';
+    if (pendingOps.length) {   // try to push the waiting changes first, so the exact error (if any) is shown here
+      try { setSync('saving'); saveQueue = saveQueue.then(syncNow); await saveQueue; setSync('ok'); }
+      catch (e) { saveErr = [e.message, e.details, e.hint, e.code].filter(Boolean).join(' | '); setSync('error', e.message); }
+    }
+    try {
+      stashActive();
+      const rows = (await fetchPlans()).map(parseRow), cloud = rows.find(p => p.id === activeId), local = planById(activeId);
+      const lines = [`Account: ${currentUser.email || 'Google account'}`, `App version: ${APP_VERSION}`,
+        `Plans: ${rows.length} in the cloud, ${plans.length} on this device`, `Unsaved changes waiting on this device: ${pendingOps.length}`];
+      if (saveErr) lines.push(`❌ Save error: ${saveErr}`);
+      else if (!pendingOps.length) lines.push('✅ Nothing is waiting to be saved.');
+      if (!cloud) lines.push('⚠️ This plan is not in the cloud yet. Tap the ⚠️ chip at the top to retry saving.');
+      else {
+        const same = cloud.days.size === local.days.size && planSaved(cloud) === planSaved(local);
+        lines.push(`This plan: ${cloud.days.size} day(s) / ${money(planSaved(cloud))} in the cloud, ${local.days.size} day(s) / ${money(planSaved(local))} here ${same ? '✅ match' : '⚠️ different'}`);
+      }
+      out.textContent = lines.join('\n');
+    } catch (e) { out.textContent = '⚠️ Could not reach the cloud: ' + e.message; }
+  });
+
+  // ---- Change password (Settings) ----
+  const pwForm = document.getElementById('pwForm'), pwCurrentWrap = document.getElementById('pwCurrentWrap');
+  const pwCurrent = document.getElementById('pwCurrent'), pwNew = document.getElementById('pwNew'), pwConfirm = document.getElementById('pwConfirm');
+  const pwStatus = document.getElementById('pwStatus'), pwHint = document.getElementById('pwHint'), pwBtn = document.getElementById('pwBtn');
+  const hasPasswordLogin = () => !!currentUser && !!currentUser.email &&
+    (((currentUser.app_metadata && currentUser.app_metadata.providers) || []).includes('email') || (currentUser.identities || []).some(i => i.provider === 'email'));
+  function setPwStatus(msg, bad) { pwStatus.textContent = msg || ''; pwStatus.classList.toggle('bad', !!bad); }
+  function updatePasswordPanel() {
+    const needCurrent = hasPasswordLogin() && !recoveryMode;
+    pwCurrentWrap.hidden = !needCurrent; pwCurrent.required = needCurrent;
+    pwHint.textContent = recoveryMode ? 'You opened a password-reset link. Choose a new password below.'
+      : needCurrent ? 'Enter your current password, then choose a new one (at least 6 characters).'
+      : 'You signed in with Google. You can set a password so you can also sign in with your email address.';
+  }
+  document.getElementById('pwShow').addEventListener('change', e => {
+    [pwCurrent, pwNew, pwConfirm].forEach(i => { i.type = e.target.checked ? 'text' : 'password'; });
+  });
+  pwForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    const cur = pwCurrent.value, np = pwNew.value, cf = pwConfirm.value, needCurrent = !pwCurrentWrap.hidden;
+    if (needCurrent && !cur) return setPwStatus('Enter your current password.', true);
+    if (np.length < 6) return setPwStatus('Your new password needs at least 6 characters.', true);
+    if (np !== cf) return setPwStatus('The two new passwords do not match.', true);
+    if (needCurrent && np === cur) return setPwStatus('Choose a password that is different from your current one.', true);
+    pwBtn.disabled = true; setPwStatus('Updating your password…');
+    try {
+      if (needCurrent) {
+        const {error} = await supabase.auth.signInWithPassword({email: currentUser.email, password: cur});
+        if (error) throw new Error(/invalid/i.test(error.message) ? 'Your current password is not correct.' : error.message);
+      }
+      const {error} = await supabase.auth.updateUser({password: np});
+      if (error) throw new Error(/reauth/i.test(error.message) ? 'For security, please sign out, sign in again, then retry.' : error.message);
+      pwForm.reset(); [pwCurrent, pwNew, pwConfirm].forEach(i => { i.type = 'password'; });
+      recoveryMode = false; updatePasswordPanel();
+      setPwStatus('Password updated! 🔐 Use it the next time you sign in.');
+      toast.textContent = 'Password changed successfully 🔐';
+    } catch (err) { setPwStatus(err.message || 'Could not update your password.', true); }
+    finally { pwBtn.disabled = false; }
+  });
+  function enterRecovery() {
+    setTab('settings'); updatePasswordPanel(); setPwStatus('');
+    toast.textContent = 'Choose a new password below 🔐';
+    setTimeout(() => { document.getElementById('passwordPanel').scrollIntoView({behavior: 'smooth', block: 'center'}); pwNew.focus(); }, 200);
+  }
+
+  const resetDialog = document.getElementById('resetDialog');
+  document.getElementById('resetBtn').addEventListener('click', () => resetDialog.showModal());
+  document.getElementById('cancelReset').addEventListener('click',()=>document.getElementById('resetDialog').close());
+  document.getElementById('confirmReset').addEventListener('click',()=>{
+    completed.clear(); dayAmounts = {}; persist({t:'reset'}); render(); toast.textContent='Fresh start! Your first shell is waiting. 🐚'; document.getElementById('resetDialog').close();
+  });
+
+  // ---- Tabs and plans ----
+  const TABS = ['plans', 'track', 'progress', 'profile', 'settings'];
+  function setTab(name) {
+    tab = TABS.includes(name) ? name : 'track';
+    try { localStorage.setItem(TAB_KEY, tab); } catch (e) {}
+    document.querySelectorAll('.tab').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === tab)));
+    document.querySelectorAll('.tab-panel').forEach(p => { p.hidden = p.dataset.panel !== tab; });
+    render();
+    window.scrollTo({top: 0});
+  }
+  function renderHero() {
+    document.getElementById('heroTitle').textContent = tab === 'plans' ? 'Your savings plans' : planName;
+    document.getElementById('heroSubtitle').textContent = tab === 'plans'
+      ? 'Run several plans at once. Tap one to open it. ✨'
+      : `${plural(totalDays, 'day')} · goal ${money(goalAmount)} · tap a shell whenever you save ✨`;
+  }
+  const planSaved = st => [...st.days].reduce((sum, d) => sum + (Number(st.amounts[String(d)]) || st.amount), 0);
+  function renderPlans() {
+    stashActive();
+    planSwitch.hidden = tab === 'plans' || tab === 'profile';
+    planSelect.innerHTML = '';
+    for (const p of plans) { const o = document.createElement('option'); o.value = p.id; o.textContent = p.name; o.selected = p.id === activeId; planSelect.appendChild(o); }
+    const list = document.getElementById('planList');
+    list.innerHTML = '';
+    for (const p of plans) {
+      const total = planSaved(p), pct = Math.min(100, Math.round(total / p.goal * 100));
+      const t = dayNumFor(p.start), cur = streakInfo(p.days, p.total, p.start).cur;
+      const status = t === null ? plural(p.total, 'day') : t < 1 ? `Starts ${fmtDate(p.start)}` : t <= p.total ? `Day ${t} of ${p.total}` : 'Ended';
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'plan-card' + (p.id === activeId ? ' active' : '');
+      b.innerHTML = `<h3>${esc(p.name)}</h3><small>${esc(status)} · ${plural(p.days.size, 'shell')} saved</small>`
+        + `<div class="plan-bar"><i style="width:${pct}%"></i></div>`
+        + `<div class="plan-meta"><span>${money(total)} of ${money(p.goal)} · ${pct}%</span><span>🔥 ${cur}-day streak</span></div>`;
+      b.addEventListener('click', () => { switchPlan(p.id); setTab('track'); });
+      list.appendChild(b);
+    }
+    document.getElementById('newPlanBtn').disabled = plans.length >= MAX_PLANS;
+    document.getElementById('planHint').textContent = `${plans.length} of ${MAX_PLANS} plans`;
+  }
+  function switchPlan(id) {
+    if (id === activeId || !planById(id)) return;
+    stashActive(); activeId = id; loadActive(); amountTouched = false; writeLocal(); render();
+  }
+  document.querySelectorAll('.tab').forEach(b => b.addEventListener('click', () => setTab(b.dataset.tab)));
+  planSelect.addEventListener('change', () => switchPlan(planSelect.value));
+
+  const newPlanDialog = document.getElementById('newPlanDialog'), npError = document.getElementById('npError');
+  const todayIso = () => { const n = new Date(); return `${n.getFullYear()}-${String(n.getMonth()+1).padStart(2,'0')}-${String(n.getDate()).padStart(2,'0')}`; };
+  document.getElementById('newPlanBtn').addEventListener('click', () => {
+    if (plans.length >= MAX_PLANS) { toast.textContent = `You can have up to ${MAX_PLANS} plans.`; return; }
+    document.getElementById('npName').value = ''; document.getElementById('npGoal').value = '10000';
+    document.getElementById('npDays').value = '100'; document.getElementById('npStart').value = todayIso(); npError.textContent = '';
+    newPlanDialog.showModal();
+  });
+  document.getElementById('cancelNewPlan').addEventListener('click', () => newPlanDialog.close());
+  document.getElementById('createPlanBtn').addEventListener('click', () => {
+    const name = cleanName(document.getElementById('npName').value), goal = Number(document.getElementById('npGoal').value);
+    const days = Number(document.getElementById('npDays').value), start = document.getElementById('npStart').value;
+    if (!name) { npError.textContent = 'Please give your plan a name.'; return; }
+    if (!inRange(goal, MAX_GOAL)) { npError.textContent = 'Goal must be a whole amount from Rs. 1 to Rs. 10,000,000.'; return; }
+    if (!inRange(days, MAX_DAYS)) { npError.textContent = 'Days must be a whole number from 1 to 365.'; return; }
+    if (start && !validDate(start)) { npError.textContent = 'Please choose a valid start date.'; return; }
+    if (plans.length >= MAX_PLANS) { npError.textContent = `You can have up to ${MAX_PLANS} plans.`; return; }
+    stashActive();
+    const st = newPlan({name, goal, total: days, start, amount: Math.min(MAX_AMOUNT, Math.max(1, Math.ceil(goal / days)))});
+    plans.push(st); activeId = st.id; loadActive(); writeLocal();
+    persist({t: 'create', plan: clonePlan(st)});
+    newPlanDialog.close(); setTab('track');
+    toast.textContent = `Plan “${st.name}” created. Time to fill some shells! 🌱`;
+  });
+  const deleteDialog = document.getElementById('deletePlanDialog');
+  document.getElementById('deletePlanBtn').addEventListener('click', () => {
+    if (plans.length <= 1) { toast.textContent = 'You need at least one plan, so this one can’t be deleted.'; return; }
+    document.getElementById('deletePlanText').textContent = `“${planName}” and all of its saved shells will be permanently deleted from your account, on every device. Export it first if you want a backup.`;
+    deleteDialog.showModal();
+  });
+  document.getElementById('cancelDeletePlan').addEventListener('click', () => deleteDialog.close());
+  document.getElementById('confirmDeletePlan').addEventListener('click', () => {
+    deleteDialog.close();
+    if (plans.length <= 1) return;
+    const id = activeId, gone = planName;
+    plans = plans.filter(p => p.id !== id); activeId = plans[0].id; loadActive(); writeLocal();
+    persist({t: 'delete', p: id});
+    setTab('plans');
+    toast.textContent = `Plan “${gone}” deleted.`;
+  });
+
+  (async () => {
+    const {data:{session}, error} = await supabase.auth.getSession();
+    if (error) { showLogin('Could not check your session: ' + error.message); return; }
+    if (session?.user) {
+      showApp(session.user);
+      try { await loadCloudProgress(session.user); if (recoveryMode) enterRecovery(); }
+      catch (e) { toast.textContent='Could not load cloud progress: ' + e.message; }
+    } else showLogin();
+    supabase.auth.onAuthStateChange((event, sessionNow) => {
+      if (event === 'SIGNED_OUT' || !sessionNow) showLogin();
+    });
+  })();
+})();
+</script>
+
+<script>
+(() => {
+  const KEY = 'shellSavings_theme_v2';
+  const THEMES = [
+    {id: 'blossom',  name: 'Blossom',  emoji: '🌸', desc: 'Soft pink & lilac', color: '#fff5f8', bg: ['#ffeaf2', '#f3ecff', '#e8fbf0'], acc: ['#80628f', '#eea8c8']},
+    {id: 'ocean',    name: 'Ocean',    emoji: '🌊', desc: 'Cool blue & aqua',  color: '#eef8fd', bg: ['#d3effb', '#e3ecff', '#dcfaf3'], acc: ['#2f7fa8', '#6cc0e3']},
+    {id: 'forest',   name: 'Forest',   emoji: '🌿', desc: 'Fresh leafy green', color: '#f2faee', bg: ['#dcf1d2', '#f1eecb', '#e5f7e9'], acc: ['#4f8a4c', '#d6c25a']},
+    {id: 'sunset',   name: 'Sunset',   emoji: '🌅', desc: 'Warm peach & coral', color: '#fff3ea', bg: ['#ffe0cb', '#ffd6df', '#fff1c9'], acc: ['#d9663f', '#f2709c']},
+    {id: 'midnight', name: 'Midnight', emoji: '🌙', desc: 'Deep dark mode',    color: '#1a1420', bg: ['#17121c', '#2a2347', '#3a2133'], acc: ['#9a7ab0', '#e58bb7']}
+  ];
+  const root = document.documentElement;
+  const get = () => { try { const v = localStorage.getItem(KEY); if (THEMES.some(t => t.id === v)) return v; } catch (e) {} return root.getAttribute('data-theme') || 'blossom'; };
+  function apply(id, save) {
+    const t = THEMES.find(x => x.id === id) || THEMES[0];
+    root.setAttribute('data-theme', t.id);
+    if (save) { try { localStorage.setItem(KEY, t.id); } catch (e) {} }
+    const meta = document.querySelector('meta[name="theme-color"]'); if (meta) meta.setAttribute('content', t.color);
+    document.querySelectorAll('.theme-btn').forEach(btn => {
+      btn.textContent = `${t.emoji} ${t.name}`;
+      btn.setAttribute('aria-label', `Theme: ${t.name}. Tap for the next theme.`);
+      btn.title = 'Change theme';
+    });
+    document.querySelectorAll('.theme-opt').forEach(o => o.setAttribute('aria-checked', String(o.dataset.theme === t.id)));
+  }
+  const grid = document.getElementById('themeGrid');
+  if (grid) THEMES.forEach(t => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'theme-opt'; b.dataset.theme = t.id; b.setAttribute('role', 'radio');
+    b.innerHTML = `<span class="sw" style="background:linear-gradient(135deg,${t.bg[0]},${t.bg[1]} 55%,${t.bg[2]})"><i style="width:26px;height:26px;right:9px;top:8px;background:${t.acc[0]}"></i><i style="width:15px;height:15px;right:38px;bottom:8px;background:${t.acc[1]}"></i><i style="width:10px;height:10px;left:12px;bottom:12px;background:${t.acc[1]};opacity:.7"></i></span><span>${t.emoji} ${t.name}</span><small>${t.desc}</small>`;
+    b.addEventListener('click', () => apply(t.id, true));
+    grid.appendChild(b);
+  });
+  document.querySelectorAll('.theme-btn').forEach(btn => btn.addEventListener('click', () => {
+    const i = THEMES.findIndex(t => t.id === get());
+    apply(THEMES[(i + 1) % THEMES.length].id, true);
+  }));
+  apply(get(), false);
+})();
+</script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js").catch((error) => {
+      console.log("Offline support could not be enabled yet.", error);
+    });
+  });
+}
+</script>
+</body>
+</html>
